@@ -33,7 +33,7 @@ function formSubmitHandler (event){
   console.log(formParams);
   const genre = formParams.get('genre');
   const cuisine = formParams.get('cuisine');
-  const intolerance = formParams.get('intolerance');
+  const intolerance = formParams.getAll('intolerance');
 
   // use this data to make api calls (placeholder)
   getRandomRecipe(); // inputs are cuisine, intolerances
