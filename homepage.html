@@ -16,20 +16,23 @@
 
   <body class="d-flex h-100 text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-      <div>
-        <h3 class="float-md-start mb-0">Dinner and a Movie</h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link" href="#" target="blank">Home</a>
-        <a class="nav-link" href="#" target="blank">Favorites</a>
-        </nav>
-      </div>
-    </header>
+      <header class="mb-auto">
+        <div>
+          <h2 class="float-md-start mb-2">Dinner and a Movie</h2>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link" href="#" target="blank">Home</a>
+            <a class="nav-link" href="#" target="blank">Favorites</a>
+          </nav>
+          <h6 class="float-md-start mb-0 text-muted"> Select a movie genre and type of cuisine below to get your recommendation for dinner and a movie. Save your favorites to revisit them later!</h6>
+        </div>
+      </header>
 
-    <main class="px-3">
-        <form>
-            <label class="form-label">Choose a movie genre: </label>
-            <select class="form-select" type="dropdown" id="movGenre">
+      <main class="mt-3 py-3 d-grid gap-2">
+        <div class="px-5">
+          <form>
+            <div class="mb-3">
+              <select class="form-select" type="dropdown" id="movGenre">
+                <option value="" selected disabled>Select a Movie Genre</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
                 <option value="animation">Animation</option>
@@ -45,39 +48,60 @@
                 <option value="romance">Romance</option>
                 <option value="sci-fi">Sci-Fi</option> 
                 <option value="thriller">Thriller</option>
-            </select>
-        <br>
-        <label class="form-label">Got any allergies or food intolerance we should know about? (If more than one applies, select the most severe)</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="allergies">
-          <label class="form-check-label" for="allergies">Allergies</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="allergies">
-          <label class="form-check-label" for="allergies">Allergies</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="allergies">
-          <label class="form-check-label" for="allergies">Allergies</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="allergies">
-          <label class="form-check-label" for="allergies">Allergies</label>
-        </div>
-    </form>
-    <br>
-        <div>
-          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white" id="rollTheDice">Roll the Dice!</a>
-        </div>
-    </main>
-    <br>
-    <hr>
-    <footer class="mt-auto text-white">
-      <p>Made by Ana Fede, Jakub Cichon, Joseph Labadia & Nathan Hanisch.</p>
-    </footer>
+              </select> 
+            </div>
+            
+            <div class="mb-3">
+              <select class="form-select" type="dropdown" id="cuisineType">
+                <option value="" selected disabled>Select a Cuisine</option>
+                <option value="American">American</option>
+                <option value="British">British</option>
+                <option value="Caribbean">Caribbean</option>
+                <option value="Chinese">Chinese</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Greek">Greek</option>
+                <option value="Indian">Indian</option>
+                <option value="Italian">Italian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Middle Eastern">Middle Eastern</option>
+                <option value="Spanish">Spanish</option> 
+                <option value="Thai">Thai</option>
+              </select>
+            </div>
+            <h6 class="text-start text-muted"> Any allergies or dietary restrictions?</h6>
 
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="allergies">
+              <label class="form-check-label" for="allergies">Vegetarian 🌱</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="allergies">
+              <label class="form-check-label" for="allergies">Gluten Free ❌ 🥖 </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="allergies">
+              <label class="form-check-label" for="allergies">Nuts ❌ 🥜</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="allergies">
+              <label class="form-check-label" for="allergies">Dairy ❌ 🥛</label>
+            </div>
 
+            <div class="mt-3">
+              <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>
+            </div>
+          </form>
+        </div>
+      </main>
 
+      <hr>
+      <footer class="mt-auto text-muted">
+        <p class="text-center">Made by Ana Fede, Jakub Cichon, Joseph Labadia & Nathan Hanisch.</p>
+      </footer>
+    </div>
     <script src="./assets/js/script.js" type="module"></script>
   </body>
 </html>
