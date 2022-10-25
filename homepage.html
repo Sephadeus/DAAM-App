@@ -31,7 +31,8 @@
         <div class="px-5">
           <form id="user-choice-form">
             <div class="mb-3">
-              <select name="genres" class="form-select" type="dropdown" id="movGenre">
+              <label for="movie-genre" hidden>Select a Movie Genre</label>
+              <select name="genres" class="form-select" type="dropdown" id="movie-genre">
                 <option value="" selected disabled>Select a Movie Genre</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
@@ -52,7 +53,8 @@
             </div>
             
             <div class="mb-3">
-              <select class="form-select" type="dropdown" id="cuisineType">
+              <label for="cuisine-type" hidden>Select a Cuisine</label>
+              <select class="form-select" type="dropdown" id="cuisine-type">
                 <option value="" selected disabled>Select a Cuisine</option>
                 <option value="American">American</option>
                 <option value="British">British</option>
@@ -90,10 +92,10 @@
               <label class="form-check-label" for="allergies">Dairy ❌ 🥛</label>
             </div>
 
-            <div class="mt-3">
-              <!--<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>-->
-              <input type="submit" value="Roll the Dice!" class="btn btn-lg btn-secondary fw-bold border-white bg-white" />
-            </div>
+            <!--<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>-->
+            <label class="mt-3" for="submit-button">
+              <input type="submit" value="Roll the Dice!" id="submit-button" class="btn btn-lg btn-secondary fw-bold border-white bg-white" />
+            </label>
           </form>
         </div>
       </main>
