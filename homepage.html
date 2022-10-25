@@ -28,6 +28,7 @@
 
     <main class="px-3">
         <form>
+            <label class="form-label">Choose a movie genre: </label>
             <select class="form-select" type="dropdown" id="movGenre">
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
@@ -45,8 +46,8 @@
                 <option value="sci-fi">Sci-Fi</option> 
                 <option value="thriller">Thriller</option>
             </select>
-        </form>
-
+        <br>
+        <label class="form-label">Got any allergies or food intolerance we should know about? (If more than one applies, select the most severe)</label>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="allergies">
           <label class="form-check-label" for="allergies">Allergies</label>
@@ -63,12 +64,14 @@
           <input class="form-check-input" type="checkbox" value="" id="allergies">
           <label class="form-check-label" for="allergies">Allergies</label>
         </div>
-
+    </form>
+    <br>
         <div>
-          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>
+          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white" id="rollTheDice">Roll the Dice!</a>
         </div>
     </main>
-
+    <br>
+    <hr>
     <footer class="mt-auto text-white">
       <p>Made by Ana Fede, Jakub Cichon, Joseph Labadia & Nathan Hanisch.</p>
     </footer>
