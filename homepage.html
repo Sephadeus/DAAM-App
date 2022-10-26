@@ -20,7 +20,7 @@
         <div>
           <h2 class="float-md-start mb-2">Dinner and a Movie</h2>
           <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link" href="#" target="blank">Home</a>
+            <a class="nav-link" href="homepage.html" target="blank">Home</a>
             <a class="nav-link" href="#" target="blank">Favorites</a>
           </nav>
           <h6 class="float-md-start mb-0 text-muted"> Select a movie genre and type of cuisine below to get your recommendation for dinner and a movie. Save your favorites to revisit them later!</h6>
@@ -29,7 +29,7 @@
 
       <main class="mt-3 py-3 d-grid gap-2">
         <div class="px-5">
-          <form id="user-choice-form">
+          <form id="user-choice-form" action="./assets/js/main.js" method="GET">
             <div class="mb-3">
               <label for="movie-genre" hidden>Select a Movie Genre</label>
               <select name="genre" type="dropdown" id="movie-genre" class="form-select">
@@ -76,16 +76,16 @@
             <h6 class="text-start text-muted"> Any allergies or dietary restrictions?</h6>
 
             <div class="form-check">
-              <input type="checkbox" id="vegetarian" value="vegetarian" name="intolerance" class="form-check-input">
-              <label for="vegetarian" class="form-check-label">Vegetarian 🌱</label>
+              <input type="checkbox" id="soy" value="soy" name="intolerance" class="form-check-input">
+              <label for="soy" class="form-check-label">Soy ❌ 🌱</label>
             </div>
             <div class="form-check">
               <input type="checkbox" id="gluten" value="gluten" name="intolerance" class="form-check-input">
               <label for="gluten" class="form-check-label">Gluten Free ❌ 🥖 </label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="nuts" value="nuts" name="intolerance" class="form-check-input">
-              <label for="nuts" class="form-check-label">Nuts ❌ 🥜</label>
+              <input type="checkbox" id="peanuts" value="peanuts" name="intolerance" class="form-check-input">
+              <label for="peanuts" class="form-check-label">Peanuts ❌ 🥜</label>
             </div>
             <div class="form-check">
               <input type="checkbox" id="dairy" value="dairy" name="intolerance" class="form-check-input">
