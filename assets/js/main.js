@@ -29,19 +29,27 @@ function formSubmitHandler (event){
   // handle the form data
   // collect the info from the form (query params from URL)
   const queryString = document.location.search;
+  console.log("Query String: " + queryString);
+
   const formParams = new URLSearchParams(queryString);
-  console.log(formParams);
+  console.log(formParams.toString());
+
   const genre = formParams.get('genre');
+  console.log("Genre: " + genre);
+
   const cuisine = formParams.get('cuisine');
+  console.log("Cuisine: " + cuisine);
+
   const intolerance = formParams.getAll('intolerance');
+  console.log("Intolerane: " + intolerance);
 
   // use this data to make api calls (placeholder)
-  getRandomRecipe(); // inputs are cuisine, intolerances
-  getRecipeInfo(); // input is the ID of the recipe, retrieved with getRandomRecipe()
+  getRandomRecipe('french','gluten,dairy'); // inputs are cuisine, intolerances
+  getRecipeInfo(649328); // input is the ID of the recipe, retrieved with getRandomRecipe()
 
-  // call function to display info from API call in model/pop-up box
+  // call function to display info from API call in modal/pop-up box
   // placeholder
-  renderOutput();
+  //renderOutput();
 
 };
 
