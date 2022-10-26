@@ -16,7 +16,7 @@ const formEl = document.getElementById('user-choice-form');
 //     intolerances = intoleranceEl.value;
 //     searchMovies(chosenGenre);
 //     searchRecipes();
-//     window.location.assign();
+//     window.location.assign();//
 // }
 
 // function searchMovies(genre) {
