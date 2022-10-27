@@ -36,12 +36,7 @@
           <form id="user-choice-form">
             <div class="mb-3">
               <label for="movie-genre" hidden>Select a Movie Genre</label>
-              <select
-                name="genre"
-                type="dropdown"
-                id="movie-genre"
-                class="form-select"
-              >
+              <select name="genre" type="dropdown" id="movie-genre" class="form-select">
                 <option value="" selected disabled>Select a Movie Genre</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
@@ -63,12 +58,7 @@
 
             <div class="mb-3">
               <label for="cuisine-type" hidden>Select a Cuisine</label>
-              <select
-                name="cuisine"
-                type="dropdown"
-                id="cuisine-type"
-                class="form-select"
-              >
+              <select name="cuisine" type="dropdown" id="cuisine-type" class="form-select">
                 <option value="" selected disabled>Select a Cuisine</option>
                 <option value="American">American</option>
                 <option value="British">British</option>
@@ -92,103 +82,41 @@
             </h6>
 
             <div class="form-check">
-              <input
-                type="checkbox"
-                id="vegetarian"
-                value="vegetarian"
-                name="intolerance"
-                class="form-check-input"
-              />
-              <label for="vegetarian" class="form-check-label"
-                >Vegetarian 🌱</label
-              >
+              <input type="checkbox" id="vegetarian" value="vegetarian" name="intolerance" class="form-check-input"/>
+              <label for="vegetarian" class="form-check-label">Vegetarian 🌱</label>
             </div>
             <div class="form-check">
-              <input
-                type="checkbox"
-                id="gluten"
-                value="gluten"
-                name="intolerance"
-                class="form-check-input"
-              />
-              <label for="gluten" class="form-check-label"
-                >Gluten Free ❌ 🥖
-              </label>
+              <input type="checkbox" id="gluten" value="gluten" name="intolerance" class="form-check-input"/>
+              <label for="gluten" class="form-check-label">Gluten Free ❌ 🥖</label>
             </div>
             <div class="form-check">
-              <input
-                type="checkbox"
-                id="nuts"
-                value="nuts"
-                name="intolerance"
-                class="form-check-input"
-              />
+              <input type="checkbox" id="nuts" value="nuts" name="intolerance" class="form-check-input"/>
               <label for="nuts" class="form-check-label">Nuts ❌ 🥜</label>
             </div>
             <div class="form-check">
-              <input
-                type="checkbox"
-                id="dairy"
-                value="dairy"
-                name="intolerance"
-                class="form-check-input"
-              />
+              <input type="checkbox" id="dairy" value="dairy" name="intolerance" class="form-check-input"/>
               <label for="dairy" class="form-check-label">Dairy ❌ 🥛</label>
             </div>
 
             <!--<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>-->
             <label class="mt-3" for="submit-button">
-              <button
-                type="button"
-                class="btn btn-lg btn-secondary fw-bold border-white bg-white"
-                id="submit-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-              >
-                Roll the Dice!
-              </button>
+              <button type="button" class="btn btn-lg btn-secondary fw-bold border-white bg-white" id="submit-button" data-bs-toggle="modal" data-bs-target="#myModal">Roll the Dice!</button>
             </label>
           </form>
         </div>
-        <div
-          class="modal fade"
-          id="myModal"
-          data-bs-backdrop="static"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
+        <div class="modal fade" id="myModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content bg-dark">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Your Dinner and a Movie!
                 </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">...</div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary bg-white"
-                  id="try-again"
-                  data-bs-dismiss="modal"
-                >
-                  Try again
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-secondary bg-white"
-                  id="save-to-favorites"
-                  onclick="window.location.href='favorites.html'"
-                >
-                  Save to favorites
-                </button>
+                <button type="button" class="btn btn-secondary bg-white" id="try-again" data-bs-dismiss="modal">Try again</button>
+                <button type="button" class="btn btn-secondary bg-white" id="save-to-favorites" onclick="window.location.href='favorites.html'">Save to favorites</button>
               </div>
             </div>
           </div>
