@@ -29,7 +29,7 @@
 
       <main class="mt-3 py-3 d-grid gap-2">
         <div class="px-5">
-          <form id="user-choice-form" action="./homepage.html" method="GET">
+          <form id="user-choice-form"></form>
             <div class="mb-3">
               <label for="movie-genre" hidden>Select a Movie Genre</label>
               <select name="genre" type="dropdown" id="movie-genre" class="form-select">
@@ -84,8 +84,8 @@
               <label for="gluten" class="form-check-label">Gluten Free ❌ 🥖 </label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="peanuts" value="peanuts" name="intolerance" class="form-check-input">
-              <label for="peanuts" class="form-check-label">Peanuts ❌ 🥜</label>
+              <input type="checkbox" id="peanut" value="peanut" name="intolerance" class="form-check-input">
+              <label for="peanut" class="form-check-label">Peanuts ❌ 🥜</label>
             </div>
             <div class="form-check">
               <input type="checkbox" id="dairy" value="dairy" name="intolerance" class="form-check-input">
@@ -94,7 +94,10 @@
 
             <!--<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Roll the Dice!</a>-->
             <label class="mt-3" for="submit-button">
-              <input type="submit" value="Roll the Dice!" id="submit-button" class="btn btn-lg btn-secondary fw-bold border-white bg-white" />
+              <!-- <input type="submit" value="Roll the Dice!" id="submit-button" class="btn btn-lg btn-secondary fw-bold border-white bg-white" /> -->
+              <button type="button" id="submit-button" class="btn btn-lg btn-secondary fw-bold border-white bg-white">
+                Roll the Dice!
+              </button>
             </label>
           </form>
         </div>
