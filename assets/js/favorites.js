@@ -1,19 +1,40 @@
 
-
+//document.getElementById('').addEventListener(click, )
 
 function generateFavorite(){
-    var movieTitle = localStorage.getItem('movie');
-    var mealTitle = localStorage.getItem('meal');
-    var movieImg = localStorage.getItem ('movieImg');
-    var mealImg = localStorage.getItem ('mealImg');
+    var movieTitle = localStorage.getItem('movie-title');
+    var mealTitle = localStorage.getItem('meal-title');
+    var movieImg = localStorage.getItem ('movie-img');
+    var mealImg = localStorage.getItem ('meal-img');
 
     document.getElementById('movie-title').value = movieTitle;
     document.getElementById ('meal-title').value = mealTitle;
     document.getElementById ('movie-img').value = movieImg;
     document.getElementById('meal-img').value = mealImg;
-   
-}
-generateFavorite();
+     
+};
+
+document.getElementById('movie-title').textContent = "Movie: " + movieTitle;
+document.getElementById('meal-title').textContent = "Meal: " + mealTitle;
+document.getElementById('movie-img').src = movieImg;
+document.getElementById('meal-img').src = mealImg;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
