@@ -1,4 +1,4 @@
-import { getRandomRecipe, getRecipeInfo } from './foodApi.js';
+//import { getRandomRecipe, getRecipeInfo } from './foodApi.js';
 
 const formEl = document.getElementById('user-choice-form');
 
@@ -37,14 +37,15 @@ function formSubmitHandler (event){
   const genre = formParams.get('genre');
   console.log("Genre: " + genre);
 
-  const cuisine = formParams.get('cuisine');
+  const cuisine = formParams.get('cuisine').toLowerCase();
   console.log("Cuisine: " + cuisine);
 
   const intolerance = formParams.getAll('intolerance');
   console.log("Intolerane: " + intolerance);
 
   // use this data to make api calls (placeholder)
-  getRandomRecipe('french','gluten,dairy'); // inputs are cuisine, intolerances
+  getRandomRecipe(cuisine,intolerance); // inputs are cuisine, intolerances
+  
   getRecipeInfo(649328); // input is the ID of the recipe, retrieved with getRandomRecipe()
 
   // call function to display info from API call in modal/pop-up box
@@ -52,5 +53,49 @@ function formSubmitHandler (event){
   //renderOutput();
 
 };
+
+// make API requests to pull back random recipe filtered by specific cuisine type and dietary restrictions
+
+var spoonacularBaseApiUrl = 'https://api.spoonacular.com/'
+var spoonacularApiKey = "3a719d472e46434aa2f953f1f40adfd0"
+
+// TODO: return an object with the relevant info, including recipe ID
+var getRandomRecipe = function (cuisine, intolerance) {
+  let spoonacularComplexSearch = 'recipes/complexSearch?sort=random&number=1'
+  let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
+
+  fetch(apiCall)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        alert('Error: ' + response.statusText);
+      };
+    })
+    .then(function (data) {
+      console.log('getRandomRecipe Response \n----------');
+      console.log(data);
+    })
+};
+
+
+
+var getRecipeInfo = function (id) {
+  let apiCall = spoonacularBaseApiUrl + '/recipes/' + id + '/information?includeNutrition=false&apiKey=' + spoonacularApiKey
+
+  fetch(apiCall)
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      alert('Error: ' + response.statusText);
+    };
+  })
+  .then(function (data) {
+    console.log('getRecipeInfo Response \n----------');
+    console.log(data);
+  })
+};
+
 
 formEl.addEventListener('submit', formSubmitHandler);
