@@ -11,15 +11,21 @@ var getRandomRecipe = function (cuisine, intolerance) {
   fetch(apiCall)
     .then(function (response) {
       if (response.ok) {
-        console.log(response);
-        console.log(response.json());
+        return response.json();
       } else {
         alert('Error: ' + response.statusText);
-      }
+      };
+    })
+    .then(function (data) {
+      console.log('getRandomRecipe Response \n----------');
+      console.log(data);
     })
 };
 
+<<<<<<< HEAD
 getRandomRecipe('french', 'gluten');
+=======
+>>>>>>> ac626c4627dc86c871121062b192440b49eef804
 
 
 var getRecipeInfo = function (id) {
@@ -28,12 +34,16 @@ var getRecipeInfo = function (id) {
   fetch(apiCall)
   .then(function (response) {
     if (response.ok) {
-      console.log(response);
-      console.log(response.json());
+      return response.json();
     } else {
       alert('Error: ' + response.statusText);
-    }
+    };
   })
-}
+  .then(function (data) {
+    console.log('getRecipeInfo Response \n----------');
+    console.log(data);
+  })
+};
 
-// getRecipeInfo('642230');
+
+export { getRandomRecipe, getRecipeInfo };
