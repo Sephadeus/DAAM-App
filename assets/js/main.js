@@ -1,28 +1,11 @@
-//import { getRandomRecipe, getRecipeInfo } from './foodApi.js';
-
 const formEl = document.getElementById('user-choice-form');
 const submitBtnEl = document.getElementById('submit-button');
 var cuisineTypeEl = document.getElementById('cuisine-type');
 var movieGenreEl = document.getElementById('movie-genre');
 
 
-
-// Object.entries(intoleranceState).forEach(entry => {
-//   const [key, value] = entry;
-//   var intoleranceList = []
-//   if (value) {
-//     intoleranceList.push[key]
-//   }
-// })
-
 function intoleranceLister (state){
-  // for (let i = 0; i < state.length; i++) {
-  //   const element = state[i];
-    
-  // }
-  // for (let i in state){
-  //   if
-  // }
+
   var intoleranceList = []
 
   Object.entries(state).forEach(entry => {
@@ -35,28 +18,6 @@ function intoleranceLister (state){
   return intoleranceList
 };
 
-
-// const chosenGenreEl = document.getElementById('movie-genre');
-// var chosenGenre = String;
-
-// const intolerances = document.querySelectorAll('')
-// const rollDiceEl = document.getElementById("rollTheDice");
-// rollDiceEl.addEventListener("click", submitInput);
-
-
-// function submitInput(event) {
-//     event.preventDefault();
-//     chosenGenre = chosenGenreEl.value;
-//     intolerances = intoleranceEl.value;
-//     searchMovies(chosenGenre);
-//     searchRecipes();
-//     window.location.assign();
-// }
-
-// function searchMovies(genre) {
-//     var moviesAPI;
-//     fetch(response)
-// }
 
 // make API requests to pull back random recipe filtered by specific cuisine type and dietary restrictions
 
@@ -117,23 +78,7 @@ function formSubmitHandler (){
     peanut: peanutIntolerance,
     dairy: dairyIntolerance
   };
-  //event.preventDefault();
-  // handle the form data
-  // collect the info from the form (query params from URL)
-  // var queryString = document.location.search;
-  // console.log("Query String: " + queryString);
 
-  // var formParams = new URLSearchParams(queryString);
-  // console.log(formParams.toString());
-
-  // var genre = formParams.get('genre');
-  // console.log("Genre: " + genre);
-
-  // var cuisine = formParams.get('cuisine');
-  // console.log("Cuisine: " + cuisine);
-
-  // var intolerance = formParams.getAll('intolerance');
-  // console.log("Intolerance: " + intolerance);
 
   var cuisine = cuisineTypeEl.value;
   var movieGenre = movieGenreEl.value;
@@ -155,5 +100,5 @@ function formSubmitHandler (){
 };
 
 
-//formEl.addEventListener('click', formSubmitHandler);
+
 submitBtnEl.addEventListener('click', formSubmitHandler);
