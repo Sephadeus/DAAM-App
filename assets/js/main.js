@@ -2,7 +2,7 @@
 import { getRandomRecipe, getRecipeInfo} from './foodApi.js';
 import { getRandomMovie } from './movieApi.js';
 
-const formEl = document.getElementById('user-choice-form');
+//const formEl = document.getElementById('user-choice-form');
 const submitBtnEl = document.getElementById('submit-button');
 var cuisineTypeEl = document.getElementById('cuisine-type');
 var movieGenreEl = document.getElementById('movie-genre');
