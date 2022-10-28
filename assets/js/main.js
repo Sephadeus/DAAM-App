@@ -1,6 +1,6 @@
 // import functions
 import { getRandomRecipe, getRecipeInfo} from './foodApi.js';
-import { getRandomMovie } from './movieApi.js';
+import { getRandomMovie} './movieApi.js';
 
 const formEl = document.getElementById('user-choice-form');
 const submitBtnEl = document.getElementById('submit-button');
@@ -51,8 +51,8 @@ function formSubmitHandler (){
   console.log("randomRecipeId: " + randomRecipeId)
 
   getRecipeInfo(randomRecipeId); // input is the ID of the recipe, retrieved with getRandomRecipe()
-
-  getRandomMovie();
+  console.log("movieGenre" + movieGenre)
+  getRandomMovie(movieGenre);
   // call function to display info from API call in modal/pop-up box
   // placeholder
   renderOutput();

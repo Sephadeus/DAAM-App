@@ -61,21 +61,22 @@ const getRandomMovie = function (genre) {
       console.log(resultsArr);
     let possibleRecs = [];
 
-    while (possibleRecs.length < 20){
+
       for (let i = 0; i < resultsArr.length; i++) {
         if (
           resultsArr[i].hasOwnProperty("genre_ids") &&
-          resultsArr[i]["genre_ids"].includes(chosenGenreID)
+          resultsArr[i]["genre_ids"].includes(chosenGenreID) &&
+          resultsArr[i]["vote_average"] >= 5
         ) {
           //console.log(resultsArr[i].genre_ids);
           //console.log(resultsArr[i]);
           possibleRecs.push(i);
         } 
-        else {
+      /*  else {
           i++;
-        }
+        } */
       }
-    }
+    
         let randomMod = Math.floor(Math.random() * possibleRecs.length);
         console.log(possibleRecs)
         console.log(randomMod);
@@ -108,6 +109,6 @@ const getRandomMovie = function (genre) {
   
 
 
-getRandomMovie("Action");
+//getRandomMovie("Action");
 
 export {getRandomMovie};
