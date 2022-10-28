@@ -10,7 +10,7 @@ const getRandomMovie = function (genre) {
     tmdbApiKey +
     "&language=en-US";
 
-  var chosenGenreID = Number;
+  var chosenGenreID;
  // var chosenMovies = [];
 
   fetch(apiCall)
@@ -32,21 +32,23 @@ const getRandomMovie = function (genre) {
 
         if (genreLibrary[i].name == genre) {
           chosenGenreID = genreLibrary[i].id;
-          //console.log(chosenGenreID);
+          console.log(chosenGenreID);
           return chosenGenreID;
         } else {
           i++;
         }
       }
       return chosenGenreID;
-    });
-  //console.log(chosenGenreID);
-  let tmdbSearchURL =
+    })
+    .then(function(chosenGenreID) {
+      
+    let tmdbSearchURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
     tmdbApiKey +
     "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&with_original_language=en&with_genres=" +
     chosenGenreID;
-  //console.log(tmdbSearchURL);
+  
+    console.log(tmdbSearchURL);
 
   fetch(tmdbSearchURL)
     .then(function (response) {
@@ -60,7 +62,7 @@ const getRandomMovie = function (genre) {
     let possibleRecs = [];
 
     while (possibleRecs.length < 20){
-      for (let i = 1; i < resultsArr.length; i++) {
+      for (let i = 0; i < resultsArr.length; i++) {
         if (
           resultsArr[i].hasOwnProperty("genre_ids") &&
           resultsArr[i]["genre_ids"].includes(chosenGenreID)
@@ -68,10 +70,14 @@ const getRandomMovie = function (genre) {
           //console.log(resultsArr[i].genre_ids);
           //console.log(resultsArr[i]);
           possibleRecs.push(i);
+        } 
+        else {
+          i++;
         }
       }
     }
         let randomMod = Math.floor(Math.random() * possibleRecs.length);
+        console.log(possibleRecs)
         console.log(randomMod);
         console.log(possibleRecs[randomMod]);
         let theChosenMovieIndex = possibleRecs[randomMod];
@@ -84,7 +90,7 @@ const getRandomMovie = function (genre) {
           chosenMovieObj.backdrop = resultsArr[theChosenMovieIndex].backdrop_path;
           chosenMovieObj.releaseDate = resultsArr[theChosenMovieIndex].release_date;
           chosenMovieObj.vote_average = resultsArr[theChosenMovieIndex].vote_average;
-          chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_id;
+          chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_ids;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
           
 
@@ -95,7 +101,11 @@ const getRandomMovie = function (genre) {
             "Movie Recommendation",
             JSON.stringify(chosenMovieObj) */
           });
-        };
+        })
+      }
+    
+  //console.log(chosenGenreID);
+  
 
 
 getRandomMovie("Action");
