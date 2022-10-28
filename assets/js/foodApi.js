@@ -26,6 +26,7 @@ function getRandomRecipe (cuisine, intolerance) {
     })
 };
 
+getRandomRecipe('french', 'gluten');
 
 
 function getRecipeInfo (id) {
