@@ -1,23 +1,34 @@
 
-//document.getElementById('').addEventListener(click, )
+git document.body.onload = generateFavoriteCard;
+function generateFavoriteCard(){
+    var placeholderText = document.getElementById("placeholder-text");
+        placeholderText.parentNode.removeChild(placeholderText);
 
-function generateFavorite(){
-    var movieTitle = localStorage.getItem('movie-title');
-    var mealTitle = localStorage.getItem('meal-title');
-    var movieImg = localStorage.getItem ('movie-img');
-    var mealImg = localStorage.getItem ('meal-img');
+    var movie = document.createElement('p');
+    document.getElementById("movie-title").appendChild(movie);
+        // localStorage.setItem('movie', 'legally blonde');
+            document.getElementById("movie-title").innerHTML = 
+                "Movie: " + localStorage.getItem('movie');
 
-    document.getElementById('movie-title').value = movieTitle;
-    document.getElementById ('meal-title').value = mealTitle;
-    document.getElementById ('movie-img').value = movieImg;
-    document.getElementById('meal-img').value = mealImg;
-     
+
+    var meal = document.createElement("p");
+    document.getElementById("meal-title").appendChild(meal);
+        // localStorage.setItem('meal','chicken parm');
+            document.getElementById('meal-title').innerHTML = 
+                "Meal: " + localStorage.getItem('meal');
+
+
+     var movieImage = document.createElement('img');
+    //  image.src = 
+     document.getElementById("favorites").appendChild(movieImage);
+
+     var mealImage = document.createElement('img');
+     //image.src = 
+     document.getElementById("favorites").appendChild(mealImage);
+
+      
 };
 
-document.getElementById('movie-title').textContent = "Movie: " + movieTitle;
-document.getElementById('meal-title').textContent = "Meal: " + mealTitle;
-document.getElementById('movie-img').src = movieImg;
-document.getElementById('meal-img').src = mealImg;
 
 
 
@@ -38,18 +49,4 @@ document.getElementById('meal-img').src = mealImg;
 
 
 
-// document.getElementById('card-text').textContent = "Movie: " + value;
-// document.getElementById ('meal-title1').textContent = "what's for dinner";
 
-// var favorites = {
-//     movie: "happy gilmore",
-//     meal: "chicken parm",
-// }
-
-// var favoriteText = document.querySelector('.card-text');
-// var moviePoster = document.querySelector('.bd-placeholder-img');
-
-
-// window.localStorage.setItem('favorites', JSON.stringify(favorites));
-// window.localStorage.getItem('favorites');
-// JSON.parse(window.localStorage.getItem('favorites'));
