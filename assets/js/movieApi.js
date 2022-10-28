@@ -108,6 +108,6 @@ const getRandomMovie = function (genre) {
   
 
 
-getRandomMovie("Action");
+//getRandomMovie("Action");
 
 export {getRandomMovie};
