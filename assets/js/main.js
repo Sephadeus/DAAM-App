@@ -52,11 +52,11 @@ function formSubmitHandler (){
 
   getRecipeInfo(randomRecipeId); // input is the ID of the recipe, retrieved with getRandomRecipe()
 
-  getRandomMovie();
+  getRandomMovie(movieGenre);
   // call function to display info from API call in modal/pop-up box
   // placeholder
-  renderOutput();
+  //renderOutput();
 
 };
 
-formEl.addEventListener('submit', formSubmitHandler);
+submitBtnEl.addEventListener('click', formSubmitHandler);
