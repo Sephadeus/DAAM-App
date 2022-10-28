@@ -2,7 +2,7 @@
 import { getRandomRecipe, getRecipeInfo} from './foodApi.js';
 import { getRandomMovie} './movieApi.js';
 
-const formEl = document.getElementById('user-choice-form');
+//const formEl = document.getElementById('user-choice-form');
 const submitBtnEl = document.getElementById('submit-button');
 var cuisineTypeEl = document.getElementById('cuisine-type');
 var movieGenreEl = document.getElementById('movie-genre');
@@ -25,7 +25,7 @@ function intoleranceLister (state){
 function formSubmitHandler (){
   var soyIntolerance = document.getElementById('soy').checked
   var glutenIntolerance = document.getElementById('gluten').checked
-  var peanutIntolerance = document.getElementById('peanut').checked
+  var peanutIntolerance = document.getElementById('peanuts').checked
   var dairyIntolerance = document.getElementById('dairy').checked
 
   // object with true or false status of intolerance state for each option
@@ -55,8 +55,8 @@ function formSubmitHandler (){
   getRandomMovie(movieGenre);
   // call function to display info from API call in modal/pop-up box
   // placeholder
-  renderOutput();
+  //renderOutput();
 
 };
 
-formEl.addEventListener('submit', formSubmitHandler);
+submitBtnEl.addEventListener('click', formSubmitHandler);

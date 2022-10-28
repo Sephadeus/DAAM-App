@@ -72,9 +72,7 @@ const getRandomMovie = function (genre) {
           //console.log(resultsArr[i]);
           possibleRecs.push(i);
         } 
-      /*  else {
-          i++;
-        } */
+      
       }
     
         let randomMod = Math.floor(Math.random() * possibleRecs.length);
@@ -111,4 +109,4 @@ const getRandomMovie = function (genre) {
 
 //getRandomMovie("Action");
 
-export {getRandomMovie};
+export { getRandomMovie};

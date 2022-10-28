@@ -26,8 +26,6 @@ function getRandomRecipe (cuisine, intolerance) {
     })
 };
 
-getRandomRecipe('french', 'gluten');
-
 
 function getRecipeInfo (id) {
   let apiCall = spoonacularBaseApiUrl + '/recipes/' + id + '/information?includeNutrition=false&apiKey=' + spoonacularApiKey
