@@ -23,7 +23,7 @@ const getRandomMovie = function (genre) {
       }
     })
     .then(function (data) {
-      //console.log(data);
+      console.log(data);
       var genreLibrary = data.genres;
       console.log(genreLibrary);
 
@@ -40,13 +40,13 @@ const getRandomMovie = function (genre) {
       }
       return chosenGenreID;
     })
-    .then(function(chosenGenreID) {
+    .then(function(genreID) {
       
     let tmdbSearchURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
     tmdbApiKey +
     "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&with_original_language=en&with_genres=" +
-    chosenGenreID;
+    genreID;
   
     console.log(tmdbSearchURL);
 
@@ -59,13 +59,13 @@ const getRandomMovie = function (genre) {
       //console.log(data);
       let resultsArr = data.results;
       console.log(resultsArr);
-    let possibleRecs = [];
+    var possibleRecs = [];
 
 
       for (let i = 0; i < resultsArr.length; i++) {
         if (
           resultsArr[i].hasOwnProperty("genre_ids") &&
-          resultsArr[i]["genre_ids"].includes(chosenGenreID) &&
+          resultsArr[i]["genre_ids"].includes(genreID) &&
           resultsArr[i]["vote_average"] >= 5
         ) {
           //console.log(resultsArr[i].genre_ids);
@@ -81,6 +81,7 @@ const getRandomMovie = function (genre) {
         console.log(possibleRecs[randomMod]);
         let theChosenMovieIndex = possibleRecs[randomMod];
 
+        console.log(resultsArr)
           var chosenMovieObj = {};
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
@@ -99,6 +100,7 @@ const getRandomMovie = function (genre) {
           /* localStorage.setItem(
             "Movie Recommendation",
             JSON.stringify(chosenMovieObj) */
+            return chosenMovieObj;
           });
         })
       }
