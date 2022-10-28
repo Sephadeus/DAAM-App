@@ -1,5 +1,6 @@
-//import { getRandomRecipe, getRecipeInfo } from './foodApi.js';
-import { getRandomMovie} from './movieApi.js';
+// import functions
+import { getRandomRecipe, getRecipeInfo} from './foodApi.js';
+import { getRandomMovie } from './movieApi.js';
 
 const formEl = document.getElementById('user-choice-form');
 const submitBtnEl = document.getElementById('submit-button');
@@ -18,52 +19,6 @@ function intoleranceLister (state){
     };
   });
   return intoleranceList
-};
-
-
-// make API requests to pull back random recipe filtered by specific cuisine type and dietary restrictions
-
-var spoonacularBaseApiUrl = 'https://api.spoonacular.com/'
-var spoonacularApiKey = "3a719d472e46434aa2f953f1f40adfd0"
-
-// TODO: return an object with the relevant info, including recipe ID
-function getRandomRecipe (cuisine, intolerance) {
-  let spoonacularComplexSearch = 'recipes/complexSearch?sort=random&number=1'
-  let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
-  console.log("getRandomRecipe API Call: " + apiCall)
-  fetch(apiCall)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        alert('Error: ' + response.statusText);
-      };
-    })
-    .then(function (data) {
-      console.log('getRandomRecipe Response \n----------');
-      console.log(data);
-      var recipeId = ''
-      return recipeId
-    })
-};
-
-
-
-function getRecipeInfo (id) {
-  let apiCall = spoonacularBaseApiUrl + '/recipes/' + id + '/information?includeNutrition=false&apiKey=' + spoonacularApiKey
-  console.log("getRecipeInfo API Call: " + apiCall)
-  fetch(apiCall)
-  .then(function (response) {
-    if (response.ok) {
-      return response.json();
-    } else {
-      alert('Error: ' + response.statusText);
-    };
-  })
-  .then(function (data) {
-    console.log('getRecipeInfo Response \n----------');
-    console.log(data);
-  })
 };
 
 
@@ -92,8 +47,11 @@ function formSubmitHandler (){
   console.log('genre: ' + movieGenre)
   console.log('intolerances: ' + intoleranceList)
   // use this data to make api calls (placeholder)
-  //getRandomRecipe(cuisine, intoleranceList); // inputs are cuisine, intolerances
-  //getRecipeInfo(649328); // input is the ID of the recipe, retrieved with getRandomRecipe()
+  var randomRecipeId = getRandomRecipe(cuisine, intoleranceList); // inputs are cuisine, intolerances
+  console.log("randomRecipeId: " + randomRecipeId)
+
+  getRecipeInfo(randomRecipeId); // input is the ID of the recipe, retrieved with getRandomRecipe()
+
   getRandomMovie();
   // call function to display info from API call in modal/pop-up box
   // placeholder
