@@ -25,7 +25,7 @@ function intoleranceLister (state){
 function formSubmitHandler (){
   var soyIntolerance = document.getElementById('soy').checked
   var glutenIntolerance = document.getElementById('gluten').checked
-  var peanutIntolerance = document.getElementById('peanut').checked
+  var peanutIntolerance = document.getElementById('peanuts').checked
   var dairyIntolerance = document.getElementById('dairy').checked
 
   // object with true or false status of intolerance state for each option
