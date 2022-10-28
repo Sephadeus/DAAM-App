@@ -19,10 +19,10 @@ function getRandomRecipe (cuisine, intolerance) {
     .then(function (data) {
       console.log('getRandomRecipe Response \n----------');
       console.log(data);
-      var resultsArr = data.results
-      var recipeId = resultsArr[0].id
-      console.log("Value of recipeId from getRandomRecipe: " + recipeId)
-      return recipeId
+      var resultsArr = data.results;
+      var recipeId = resultsArr[0].id;
+      console.log("Value of recipeId from getRandomRecipe: " + recipeId);
+      getRecipeInfo(recipeId);
     })
 };
 
@@ -46,4 +46,4 @@ function getRecipeInfo (id) {
 
 
 
-export { getRandomRecipe, getRecipeInfo };
+export { getRandomRecipe };
