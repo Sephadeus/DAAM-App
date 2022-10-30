@@ -2,7 +2,7 @@
 
 // TODO: return an object with the relevant info
 const getRandomMovie = function (genre) {
-  console.log(genre);
+ // console.log(genre);
   const tmdbApiKey = "6c357998608fdf506e7cd3aa5432c664";
 
   const apiCall =
@@ -23,16 +23,16 @@ const getRandomMovie = function (genre) {
       }
     })
     .then(function (data) {
-      console.log(data);
+     // console.log(data);
       var genreLibrary = data.genres;
-      console.log(genreLibrary);
+     // console.log(genreLibrary);
 
       for (let i = 0; i < genreLibrary.length; i++) {
         //console.log(genreLibrary[i]);
 
         if (genreLibrary[i].name == genre) {
           chosenGenreID = genreLibrary[i].id;
-          console.log(chosenGenreID);
+         // console.log(chosenGenreID);
           return chosenGenreID;
         } else {
           i++;
@@ -48,7 +48,7 @@ const getRandomMovie = function (genre) {
     "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&with_original_language=en&with_genres=" +
     genreID;
   
-    console.log(tmdbSearchURL);
+   // console.log(tmdbSearchURL);
 
   fetch(tmdbSearchURL)
     .then(function (response) {
@@ -58,7 +58,7 @@ const getRandomMovie = function (genre) {
     .then(function (data) {
       //console.log(data);
       let resultsArr = data.results;
-      console.log(resultsArr);
+     // console.log(resultsArr);
     var possibleRecs = [];
 
 
@@ -76,12 +76,12 @@ const getRandomMovie = function (genre) {
       }
     
         let randomMod = Math.floor(Math.random() * possibleRecs.length);
-        console.log(possibleRecs)
-        console.log(randomMod);
-        console.log(possibleRecs[randomMod]);
+       // console.log(possibleRecs)
+       // console.log(randomMod);
+       // console.log(possibleRecs[randomMod]);
         let theChosenMovieIndex = possibleRecs[randomMod];
 
-        console.log(resultsArr)
+       // console.log(resultsArr)
           var chosenMovieObj = {};
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
