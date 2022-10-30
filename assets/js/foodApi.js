@@ -9,25 +9,25 @@ var getRandomRecipe = function (cuisine, intolerance) {
   let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
   //console.log("getRandomRecipe API Call: " + apiCall)
   fetch(apiCall)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        alert('Error: ' + response.statusText);
-      };
-    })
-    .then(async function (data) {
-      console.log('getRandomRecipe Response \n----------');
-      console.log(data);
-      if(data.totalResults !== 0){
-        var randomRecipeResults = data.results;
-        var recipeId = randomRecipeResults[0].id;
-        //console.log("Value of recipeId from getRandomRecipe: " + recipeId);
-        await getRecipeInfo(recipeId);
-      } else {
-        console.log("Recipe with specified criteria not found.")
-      }
-    })
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      alert('Error: ' + response.statusText);
+    };
+  })
+  .then(async function (data) {
+    console.log('getRandomRecipe Response \n----------');
+    console.log(data);
+    if(data.totalResults !== 0){
+      var randomRecipeResults = data.results;
+      var recipeId = randomRecipeResults[0].id;
+      //console.log("Value of recipeId from getRandomRecipe: " + recipeId);
+      await getRecipeInfo(recipeId);
+    } else {
+      console.log("Recipe with specified criteria not found.")
+    }
+  });
 };
 
 
