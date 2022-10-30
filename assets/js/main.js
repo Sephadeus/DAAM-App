@@ -46,13 +46,17 @@ function formSubmitHandler (){
   console.log('cuisine: ' + cuisine)
   console.log('genre: ' + movieGenre)
   console.log('intolerances: ' + intoleranceList)
- 
+
+  // each of these functions will render the output to their respective
+  // cards inside the modal. this will be handled in the *Api.js files
+  // within those functions themselves because they're asynchronous so that's
+  // how the data needs to be passed. Otherwise their output will just be 
+  // "undefined" if we try to save their output to a variable and then handle
+  // the data here
+
   getRandomRecipe(cuisine, intoleranceList); // inputs are cuisine, intolerances
 
   getRandomMovie(movieGenre);
-  // call function to display info from API call in modal/pop-up box
-  // placeholder
-  //renderOutput();
 
 };
 
