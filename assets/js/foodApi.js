@@ -17,12 +17,16 @@ var getRandomRecipe = function (cuisine, intolerance) {
       };
     })
     .then(async function (data) {
-      //console.log('getRandomRecipe Response \n----------');
-      //console.log(data);
-      var randomRecipeResults = data.results;
-      var recipeId = randomRecipeResults[0].id;
-      //console.log("Value of recipeId from getRandomRecipe: " + recipeId);
-      await getRecipeInfo(recipeId);
+      console.log('getRandomRecipe Response \n----------');
+      console.log(data);
+      if(data.totalResults !== 0){
+        var randomRecipeResults = data.results;
+        var recipeId = randomRecipeResults[0].id;
+        //console.log("Value of recipeId from getRandomRecipe: " + recipeId);
+        await getRecipeInfo(recipeId);
+      } else {
+        console.log("Recipe with specified criteria not found.")
+      }
     })
 };
 
