@@ -163,7 +163,8 @@ const getRandomMovie = function (genre) {
             favoriteBtnEl.addEventListener('click', function(event) {
               event.preventDefault();
               if (event.target.matches('#save-to-favorites')){
-                saveToStorage(newMovieObject);
+                localStorage.removeItem("movie")
+                saveToStorage("movie", newMovieObject);
               } 
             },{once: true}); // remove event after run once
             
@@ -174,21 +175,26 @@ const getRandomMovie = function (genre) {
         });
       };
     
-var saveToStorage = function(obj){
-  // squash object to string
-  var objectString = JSON.stringify(obj);
+      var saveToStorage = function(saveType, data){
+        switch(saveType) {
+          case "movie":
+            localStorage.setItem("movie", JSON.stringify(data))
+            break;
+          case "recipe":
+            localStorage.setItem("recipe", JSON.stringify(data))
+            break;
+        }
+      var storedMovie = JSON.parse(localStorage.getItem("movie"))
+      var storedRecipe = JSON.parse(localStorage.getItem("recipe"))
 
-  // extract keys from localStorage
-  var keyValues = Object.keys(localStorage);
-
-  // filter for keys that match "movieObject" followed by a number
-  var movieKeys = keyValues.filter(str => str.match(/^movieObject[0-9]+/));
-  // set keyIndex to length of movieKeys (if there are none, it'll be 0)
-  var keyIndex = movieKeys.length
-  // add our movieObject to localStorage with the index appended to the key name
-  localStorage.setItem("movieObject" + keyIndex, objectString)
-
-};
+        if (storedMovie && storedRecipe) {
+          var list = JSON.parse(localStorage.getItem("list")) || []
+          list.push({
+            "movie": storedMovie, "recipe": storedRecipe
+          })
+          localStorage.setItem("list", JSON.stringify(list))
+        }
+      };
 
 //console.log(chosenGenreID);
 
