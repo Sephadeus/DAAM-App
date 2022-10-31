@@ -1,5 +1,5 @@
 
-git document.body.onload = generateFavoriteCard;
+document.body.onload = generateFavoriteCard;
 function generateFavoriteCard(){
     var placeholderText = document.getElementById("placeholder-text");
         placeholderText.parentNode.removeChild(placeholderText);
