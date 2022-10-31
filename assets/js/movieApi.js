@@ -2,7 +2,15 @@
 
 // TODO: return an object with the relevant info
 const getRandomMovie = function (genre) {
- // console.log(genre);
+  // console.log(genre);
+
+  const movieImgEl = document.getElementById("movie-image");
+  const movieTitleEl = document.getElementById("movie-title");
+  const movieOverviewEl = document.getElementById("movie-overview");
+  const movieScoreEl = document.getElementById("movie-score");
+  const movieReleaseEl = document.getElementById("movie-release-date");
+  const movieLinkEl = document.getElementById("movie-link");
+
   const tmdbApiKey = "6c357998608fdf506e7cd3aa5432c664";
 
   const apiCall =
@@ -10,10 +18,11 @@ const getRandomMovie = function (genre) {
     tmdbApiKey +
     "&language=en-US";
 
-    const baseImgURL = 'https://image.tmdb.org/t/p/w500';
+  const baseImgURL = "https://image.tmdb.org/t/p/w500";
+ 
 
   var chosenGenreID;
- // var chosenMovies = [];
+  // var chosenMovies = [];
 
   fetch(apiCall)
     .then(function (response) {
@@ -25,16 +34,16 @@ const getRandomMovie = function (genre) {
       }
     })
     .then(function (data) {
-     // console.log(data);
+      // console.log(data);
       var genreLibrary = data.genres;
-     // console.log(genreLibrary);
-
+      // console.log(genreLibrary);
+      console.log(genreLibrary);
       for (let i = 0; i < genreLibrary.length; i++) {
         //console.log(genreLibrary[i]);
 
         if (genreLibrary[i].name == genre) {
           chosenGenreID = genreLibrary[i].id;
-         // console.log(chosenGenreID);
+          // console.log(chosenGenreID);
           return chosenGenreID;
         } else {
           i++;
@@ -42,76 +51,123 @@ const getRandomMovie = function (genre) {
       }
       return chosenGenreID;
     })
-    .then(function(genreID) {
-      
-    let tmdbSearchURL =
-    "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbApiKey +
-    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&with_original_language=en&with_genres=" +
-    genreID;
-  
-   // console.log(tmdbSearchURL);
+    .then(function (genreID) {
+      let tmdbSearchURL =
+        "https://api.themoviedb.org/3/discover/movie?api_key=" +
+        tmdbApiKey +
+        "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&with_original_language=en&with_genres=" +
+        genreID;
 
-  fetch(tmdbSearchURL)
-    .then(function (response) {
-      //console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      //console.log(data);
-      let resultsArr = data.results;
-     // console.log(resultsArr);
-    var possibleRecs = [];
+      // console.log(tmdbSearchURL);
 
+      fetch(tmdbSearchURL)
+        .then(function (response) {
+          //console.log(response);
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+          let resultsArr = data.results;
+          // console.log(resultsArr);
+          var possibleRecs = [];
 
-      for (let i = 0; i < resultsArr.length; i++) {
-        if (
-          resultsArr[i].hasOwnProperty("genre_ids") &&
-          resultsArr[i]["genre_ids"].includes(genreID) &&
-          resultsArr[i]["vote_average"] >= 5
-        ) {
-          //console.log(resultsArr[i].genre_ids);
-          //console.log(resultsArr[i]);
-          possibleRecs.push(i);
-        } 
-      
-      }
-    
-        let randomMod = Math.floor(Math.random() * possibleRecs.length);
-       // console.log(possibleRecs)
-       // console.log(randomMod);
-       // console.log(possibleRecs[randomMod]);
-        let theChosenMovieIndex = possibleRecs[randomMod];
+          for (let i = 0; i < resultsArr.length; i++) {
+            if (
+              resultsArr[i].hasOwnProperty("genre_ids") &&
+              resultsArr[i]["genre_ids"].includes(genreID) &&
+              resultsArr[i]["vote_average"] >= 5
+            ) {
+              console.log(resultsArr[i].genre_ids);
+              console.log(resultsArr[i]);
+              possibleRecs.push(i);
+            }
+          }
 
-       // console.log(resultsArr)
+          let randomMod = Math.floor(Math.random() * possibleRecs.length);
+          console.log(possibleRecs)
+          console.log(randomMod);
+          console.log(possibleRecs[randomMod]);
+          let theChosenMovieIndex = possibleRecs[randomMod];
+
+          console.log(resultsArr)
           var chosenMovieObj = {};
+
+          console.log(resultsArr[theChosenMovieIndex])
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
-          chosenMovieObj.poster = baseImgURL + resultsArr[theChosenMovieIndex].poster_path;
-          chosenMovieObj.backdrop = baseImgURL + resultsArr[theChosenMovieIndex].backdrop_path;
-          chosenMovieObj.releaseDate = resultsArr[theChosenMovieIndex].release_date;
-          chosenMovieObj.vote_average = resultsArr[theChosenMovieIndex].vote_average;
+          chosenMovieObj.poster =
+            baseImgURL + resultsArr[theChosenMovieIndex].poster_path;
+          chosenMovieObj.backdrop =
+            baseImgURL + resultsArr[theChosenMovieIndex].backdrop_path;
+          chosenMovieObj.releaseDate =
+            resultsArr[theChosenMovieIndex].release_date;
+          chosenMovieObj.vote_average =
+            resultsArr[theChosenMovieIndex].vote_average;
           chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_ids;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
-          
+
           console.log(chosenMovieObj.poster);
 
           console.log(chosenMovieObj);
-          //chosenMovies.push(chosenMovieObj);
-          //console.log(chosenMovies);
-          /* localStorage.setItem(
-            "Movie Recommendation",
-            JSON.stringify(chosenMovieObj) */
-            return chosenMovieObj;
-          });
+
+          return chosenMovieObj;
         })
-      }
+
+        .then(function(obj){
+
+        console.log(obj)
+
+            let detailSearchURL = 'https://api.themoviedb.org/3/movie/' + obj.id + '?api_key=' + tmdbApiKey + '&language=en-US';
+            
+            fetch(detailSearchURL)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(data) {
+              console.log(data);
+
+          let newMovieObject = {};
+            newMovieObject.title =        data.title;
+            newMovieObject.overview =     data.overview;
+            newMovieObject.id =           data.id;
+            newMovieObject.imdbID =       data.imdb_id;
+            newMovieObject.score =        data.vote_average;
+            newMovieObject.releaseDate =  data.release_date;
+            newMovieObject.poster =       baseImgURL + data.poster_path;
+            newMovieObject.backdrop =     baseImgURL + data.backdrop_path;
+            newMovieObject.genre_ids =    data.genre_ids;
+
+          console.log(newMovieObject);
+          movieImgEl.setAttribute("src", "");
+          movieImgEl.setAttribute("src", newMovieObject.poster);
+          
+          movieTitleEl.textContent = "";
+          movieTitleEl.textContent = newMovieObject.title;
+          
+          movieOverviewEl.textContent = "";
+          movieOverviewEl.textContent = newMovieObject.overview;
+
+          movieScoreEl.textContent = "";
+          movieScoreEl.textContent = "Vote Average: " + newMovieObject.score;
+
+          movieReleaseEl.textContent = "";
+          movieReleaseEl.textContent = "Released: " + newMovieObject.releaseDate;
+
+          let imdbURLRef = 'https://www.imdb.com/title/' +  newMovieObject.imdbID + '/?ref_=nv_sr_srsg_0';
+          movieLinkEl.setAttribute("href", "");
+          movieLinkEl.setAttribute("href", imdbURLRef);
+            })
+          })
+
+          
+        });
+      };
     
-  //console.log(chosenGenreID);
   
 
+//console.log(chosenGenreID);
 
 //getRandomMovie("Action");
 
-export { getRandomMovie};
+export { getRandomMovie };

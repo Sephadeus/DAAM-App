@@ -20,6 +20,7 @@ function generateFavoriteCard(){
 
      var movieImage = document.createElement('img');
     //  image.src = 
+     movieImage.setAttribute("src", chosenMovieObj.poster);
      document.getElementById("favorites").appendChild(movieImage);
 
      var mealImage = document.createElement('img');
