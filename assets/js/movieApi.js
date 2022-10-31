@@ -1,5 +1,5 @@
 // make API requests to pull back a random movie from the highest rated movies of the genre chosen by the user
-
+var favoriteBtnEl = document.getElementById('save-to-favorites')
 // TODO: return an object with the relevant info
 const getRandomMovie = function (genre) {
   // console.log(genre);
@@ -138,25 +138,32 @@ const getRandomMovie = function (genre) {
             newMovieObject.backdrop =     baseImgURL + data.backdrop_path;
             newMovieObject.genre_ids =    data.genre_ids;
 
-          console.log(newMovieObject);
-          movieImgEl.setAttribute("src", "");
-          movieImgEl.setAttribute("src", newMovieObject.poster);
-          
-          movieTitleEl.textContent = "";
-          movieTitleEl.textContent = newMovieObject.title;
-          
-          movieOverviewEl.textContent = "";
-          movieOverviewEl.textContent = newMovieObject.overview;
+            console.log(newMovieObject);
+            movieImgEl.setAttribute("src", "");
+            movieImgEl.setAttribute("src", newMovieObject.poster);
+            
+            movieTitleEl.textContent = "";
+            movieTitleEl.textContent = newMovieObject.title;
+            
+            movieOverviewEl.textContent = "";
+            movieOverviewEl.textContent = newMovieObject.overview;
 
-          movieScoreEl.textContent = "";
-          movieScoreEl.textContent = "Vote Average: " + newMovieObject.score;
+            movieScoreEl.textContent = "";
+            movieScoreEl.textContent = "Vote Average: " + newMovieObject.score;
 
-          movieReleaseEl.textContent = "";
-          movieReleaseEl.textContent = "Released: " + newMovieObject.releaseDate;
+            movieReleaseEl.textContent = "";
+            movieReleaseEl.textContent = "Released: " + newMovieObject.releaseDate;
 
-          let imdbURLRef = 'https://www.imdb.com/title/' +  newMovieObject.imdbID + '/?ref_=nv_sr_srsg_0';
-          movieLinkEl.setAttribute("href", "");
-          movieLinkEl.setAttribute("href", imdbURLRef);
+            let imdbURLRef = 'https://www.imdb.com/title/' +  newMovieObject.imdbID + '/?ref_=nv_sr_srsg_0';
+            movieLinkEl.setAttribute("href", "");
+            movieLinkEl.setAttribute("href", imdbURLRef);
+
+            favoriteBtnEl.addEventListener('click', function(event) {
+              if (event.target.matches('#save-to-favorites')){
+                saveToStorage(newMovieObject);
+              } 
+            });
+            
             })
           })
 
@@ -164,7 +171,21 @@ const getRandomMovie = function (genre) {
         });
       };
     
-  
+var saveToStorage = function(apiObject){
+  // squash object to string
+  var objectString = JSON.stringify(apiObject);
+
+  // extract keys from localStorage
+  var keyValues = Object.keys(localStorage);
+
+  // filter for keys that match "movieObject" followed by a number
+  var movieKeys = keyValues.filter(str => str.match(/^movieObject[0-9]+/));
+  // set keyIndex to length of movieKeys (if there are none, it'll be 0)
+  var keyIndex = movieKeys.length
+  // add our movieObject to localStorage with the index appended to the key name
+  localStorage.setItem("movieObject" + keyIndex, objectString)
+
+};
 
 //console.log(chosenGenreID);
 
