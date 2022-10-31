@@ -175,26 +175,16 @@ const getRandomMovie = function (genre) {
         });
       };
     
-      var saveToStorage = function(saveType, data){
-        switch(saveType) {
-          case "movie":
-            localStorage.setItem("movie", JSON.stringify(data))
-            break;
-          case "recipe":
-            localStorage.setItem("recipe", JSON.stringify(data))
-            break;
-        }
-      var storedMovie = JSON.parse(localStorage.getItem("movie"))
-      var storedRecipe = JSON.parse(localStorage.getItem("recipe"))
-
-        if (storedMovie && storedRecipe) {
-          var list = JSON.parse(localStorage.getItem("list")) || []
-          list.push({
-            "movie": storedMovie, "recipe": storedRecipe
-          })
-          localStorage.setItem("list", JSON.stringify(list))
-        }
-      };
+var saveToStorage = function(saveType, data){
+  switch(saveType) {
+    case "movie":
+        localStorage.setItem("movie", JSON.stringify(data))
+        break;
+    case "recipe":
+        localStorage.setItem("recipe", JSON.stringify(data))
+        break;
+  }
+};
 
 //console.log(chosenGenreID);
 
