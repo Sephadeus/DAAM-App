@@ -10,6 +10,8 @@ const getRandomMovie = function (genre) {
     tmdbApiKey +
     "&language=en-US";
 
+    const baseImgURL = 'https://image.tmdb.org/t/p/w500';
+
   var chosenGenreID;
  // var chosenMovies = [];
 
@@ -86,13 +88,14 @@ const getRandomMovie = function (genre) {
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
-          chosenMovieObj.poster = resultsArr[theChosenMovieIndex].poster_path;
-          chosenMovieObj.backdrop = resultsArr[theChosenMovieIndex].backdrop_path;
+          chosenMovieObj.poster = baseImgURL + resultsArr[theChosenMovieIndex].poster_path;
+          chosenMovieObj.backdrop = baseImgURL + resultsArr[theChosenMovieIndex].backdrop_path;
           chosenMovieObj.releaseDate = resultsArr[theChosenMovieIndex].release_date;
           chosenMovieObj.vote_average = resultsArr[theChosenMovieIndex].vote_average;
           chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_ids;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
           
+          console.log(chosenMovieObj.poster);
 
           console.log(chosenMovieObj);
           //chosenMovies.push(chosenMovieObj);
