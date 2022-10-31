@@ -16,84 +16,177 @@
   </head>
 
   <body class="d-flex h-100 text-white bg-dark">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-          <div>
-            <h2 class="float-md-start mb-3">Dinner and a Movie</h2>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h2 class="float-md-start mb-3">Dinner and a Movie</h2>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link" href="homepage.html">Home</a>
             <a class="nav-link" href="favorites.html">Favorites</a>
-            </nav>
-          </div>
-        </header>
-    
+          </nav>
+        </div>
+      </header>
+    </div>
     <main>
-      <!-- <div class="album py-5 bg-light"> -->
-        <!-- <div class="container bg-light"> -->
-    
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex justify-content-center">
-            <div class="col" >
-               <div class="card shadow-sm border-0">
-               <!-- <svg class="bd-placeholder-img card-img-top p-1" id="movie-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <svg class="bd-placeholder-img card-img-top p-1" id="meal-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>  -->
-
-                <div class="card-body bg-dark" id ="favorites"> 
-                  <p class="placeholder-text" id = "placeholder-text">Your Favorites Here</p>
-                  <p class="card-text text-light" id="movie-title"></p>
-                  <p class="card-text text-light" id="meal-title"></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    
-                    </div>
-                  </div>
+      <div class="container d-flex flex-row">
+        <div class="row">
+          <div class="col-12 col-sm-6" id="favorite1">
+            <!-- Card 1 -->
+            <div class="card mb-3 w-100 bg-light" id="movie-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
                 </div>
-              </div> 
-            </div>
-            <!-- <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top p-1" id="movie-img" width="100%" height="225" m=" 1" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <svg class="bd-placeholder-img card-img-top p-1" id="meal-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                <div class="card-body">
-                  <p class="card-text text-secondary" id="movie-title"> </p>
-                  <p class="card-text text-secondary" id="meal-title"></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-              
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                  <svg class="bd-placeholder-img card-img-top p-1" id="movie-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <svg class="bd-placeholder-img card-img-top p-1" id="meal-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+                <div class="col-md-8">
                   <div class="card-body">
-                    <p class="card-text text-secondary" id="movie-title"></p>
-                    <p class="card-text text-secondary" id="meal-title"></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div> -->
-                  
-                    </div>
+                    <h3 class="card-title" id="movie-title">Movie Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="movie-overview">Overview: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="movie-score">
+                      <small>Movie score: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="movie-release-date">
+                      <small>Release Date: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
                   </div>
                 </div>
               </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title" id="recipe-title">Recipe Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="recipe-summary">Summary: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="recipe-time">
+                      <small>Total Time: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="recipe-cuisines">
+                      <small>Cusines: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="recipe-link">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6" id="favorite2">
+            <!-- Card 1 -->
+            <div class="card mb-3 w-100 bg-light" id="movie-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title" id="movie-title">Movie Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="movie-overview">Overview: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="movie-score">
+                      <small>Movie score: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="movie-release-date">
+                      <small>Release Date: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title" id="recipe-title">Recipe Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="recipe-summary">Summary: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="recipe-time">
+                      <small>Total Time: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="recipe-cuisines">
+                      <small>Cusines: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="recipe-link">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6" id="favorite3">
+            <!-- Card 1 -->
+            <div class="card mb-3 w-100 bg-light" id="movie-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title" id="movie-title">Movie Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="movie-overview">Overview: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="movie-score">
+                      <small>Movie score: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="movie-release-date">
+                      <small>Release Date: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
+              <div class="row g-0">
+                <div class="col-md-4 mt-4">
+                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title" id="recipe-title">Recipe Title: <span class="text-muted">Loading...</span></h3>
+                    <p class="card-text" id="recipe-summary">Summary: <span class="text-muted">Loading...</span></p>
+                    <p class="card-text m-0" id="recipe-time">
+                      <small>Total Time: <span class="text-muted">Loading...</span></small>
+                    </p>
+                    <p class="card-text m-0" id="recipe-cuisines">
+                      <small>Cusines: <span class="text-muted">Loading...</span></small>
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+                    <a href="" target="_blank" class="btn btn-primary" id="recipe-link">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-    
+      </div>
     </main>
     
     <footer class="text-muted py-5">
     </footer>
 
-    <script src="./assets/js/favorites.js" type="module"></script>
+    <script src="./assets/js/favorites.js"></script>
   </body>
 </html>
