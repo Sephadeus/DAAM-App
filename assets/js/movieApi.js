@@ -161,7 +161,7 @@ const getRandomMovie = function (genre) {
             movieLinkEl.setAttribute("href", imdbURLRef);
 
             favoriteBtnEl.addEventListener('click', function(event) {
-              event.preventDefault
+              event.preventDefault();
               if (event.target.matches('#save-to-favorites')){
                 saveToStorage(newMovieObject);
               } 
