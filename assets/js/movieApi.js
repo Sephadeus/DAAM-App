@@ -149,20 +149,23 @@ const getRandomMovie = function (genre) {
             movieOverviewEl.textContent = newMovieObject.overview;
 
             movieScoreEl.textContent = "";
-            movieScoreEl.textContent = "Vote Average: " + newMovieObject.score;
+            var movieScoreContent = "Vote Average: " + newMovieObject.score;
+            movieScoreEl.innerHTML = "<small>" + movieScoreContent + "</small>";
 
             movieReleaseEl.textContent = "";
-            movieReleaseEl.textContent = "Released: " + newMovieObject.releaseDate;
-
+            var releaseDateContent = "Released: " + newMovieObject.releaseDate;
+            movieReleaseEl.innerHTML = "<small>" + releaseDateContent + "</small>";
+          
             let imdbURLRef = 'https://www.imdb.com/title/' +  newMovieObject.imdbID + '/?ref_=nv_sr_srsg_0';
             movieLinkEl.setAttribute("href", "");
             movieLinkEl.setAttribute("href", imdbURLRef);
 
             favoriteBtnEl.addEventListener('click', function(event) {
+              event.preventDefault
               if (event.target.matches('#save-to-favorites')){
                 saveToStorage(newMovieObject);
               } 
-            });
+            },{once: true}); // remove event after run once
             
             })
           })
@@ -171,9 +174,9 @@ const getRandomMovie = function (genre) {
         });
       };
     
-var saveToStorage = function(apiObject){
+var saveToStorage = function(obj){
   // squash object to string
-  var objectString = JSON.stringify(apiObject);
+  var objectString = JSON.stringify(obj);
 
   // extract keys from localStorage
   var keyValues = Object.keys(localStorage);

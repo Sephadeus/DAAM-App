@@ -69,10 +69,11 @@ var getRecipeInfo = async function (id) {
     renderRecipeCard(recipeObject);
 
     favoriteBtnEl.addEventListener('click', function(event) {
+      event.preventDefault
       if (event.target.matches('#save-to-favorites')){
         saveToStorage(recipeObject);
       } 
-    });
+    },{once: true}); // remove event after run once
   });
 };
 
