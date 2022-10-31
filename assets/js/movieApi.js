@@ -37,7 +37,7 @@ const getRandomMovie = function (genre) {
       // console.log(data);
       var genreLibrary = data.genres;
       // console.log(genreLibrary);
-      console.log(genreLibrary);
+      console.log("Genre Library" +genreLibrary);
       for (let i = 0; i < genreLibrary.length; i++) {
         //console.log(genreLibrary[i]);
 
@@ -77,17 +77,17 @@ const getRandomMovie = function (genre) {
               resultsArr[i]["genre_ids"].includes(genreID) &&
               resultsArr[i]["vote_average"] >= 5
             ) {
-              console.log(resultsArr[i].genre_ids);
-              console.log(resultsArr[i]);
+              console.log("Genre ID's of particular movie iterated: " + resultsArr[i].genre_ids);
+              console.log("All data about movie from the API:" + resultsArr[i]);
               possibleRecs.push(i);
             }
           }
 
-          let randomMod = Math.floor(Math.random() * possibleRecs.length);
-          console.log(possibleRecs)
-          console.log(randomMod);
-          console.log(possibleRecs[randomMod]);
-          let theChosenMovieIndex = possibleRecs[randomMod];
+          var randomMod = Math.floor(Math.random() * possibleRecs.length);
+          console.log("Array of possible recommendations: " + possibleRecs)
+          console.log("Random modifier variable, which generates a random number within the range to use as : " + randomMod);
+          console.log("Pick a random movie from the array of possible recommendations: " + possibleRecs[randomMod]);
+          var theChosenMovieIndex = possibleRecs[randomMod];
 
           console.log(resultsArr)
           var chosenMovieObj = {};
@@ -107,16 +107,16 @@ const getRandomMovie = function (genre) {
           chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_ids;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
 
-          console.log(chosenMovieObj.poster);
+          console.log("Movie Poster URL" +chosenMovieObj.poster);
 
-          console.log(chosenMovieObj);
+          console.log("Chosen movie object" + chosenMovieObj);
 
           return chosenMovieObj;
         })
 
         .then(function(obj){
 
-        console.log(obj)
+        console.log("Object passed in as parameter" + obj)
 
             let detailSearchURL = 'https://api.themoviedb.org/3/movie/' + obj.id + '?api_key=' + tmdbApiKey + '&language=en-US';
             
@@ -125,7 +125,7 @@ const getRandomMovie = function (genre) {
               return response.json();
             })
             .then(function(data) {
-              console.log(data);
+              console.log("Data returned from API: " +data);
 
           let newMovieObject = {};
             newMovieObject.title =        data.title;
@@ -138,7 +138,7 @@ const getRandomMovie = function (genre) {
             newMovieObject.backdrop =     baseImgURL + data.backdrop_path;
             newMovieObject.genre_ids =    data.genre_ids;
 
-            console.log(newMovieObject);
+            console.log("New Movie Object: " + newMovieObject);
             movieImgEl.setAttribute("src", "");
             movieImgEl.setAttribute("src", newMovieObject.poster);
             
