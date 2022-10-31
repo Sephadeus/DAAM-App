@@ -71,7 +71,8 @@ var getRecipeInfo = async function (id) {
     favoriteBtnEl.addEventListener('click', function(event) {
       event.preventDefault();
       if (event.target.matches('#save-to-favorites')){
-        saveToStorage(recipeObject);
+        localStorage.removeItem("recipe")
+        saveToStorage("recipe", recipeObject);
       } 
     },{once: true}); // remove event after run once
   });
@@ -100,20 +101,25 @@ var renderRecipeCard = function(apiObject){
   recipeSourceLinkEl.setAttribute('href', apiObject.sourceUrl);
 }
 
-var saveToStorage = function(apiObject){
-  // squash object to string
-  var objectString = JSON.stringify(apiObject);
+var saveToStorage = function(saveType, data){
+  switch(saveType) {
+    case "movie":
+      localStorage.setItem("movie", JSON.stringify(data))
+      break;
+    case "recipe":
+      localStorage.setItem("recipe", JSON.stringify(data))
+      break;
+  }
+var storedMovie = JSON.parse(localStorage.getItem("movie"))
+var storedRecipe = JSON.parse(localStorage.getItem("recipe"))
 
-  // extract keys from localStorage
-  var keyValues = Object.keys(localStorage);
-
-  // filter for keys that match "recipeObject" followed by a number
-  var recipeKeys = keyValues.filter(str => str.match(/^recipeObject[0-9]+/));
-  // set keyIndex to length of recipeKeys (if there are none, it'll be 0)
-  var keyIndex = recipeKeys.length
-  // add our recipeObject to localStorage with the index appended to the key name
-  localStorage.setItem("recipeObject" + keyIndex, objectString)
-
+  if (storedMovie && storedRecipe) {
+    var list = JSON.parse(localStorage.getItem("list")) || []
+    list.push({
+      "movie": storedMovie, "recipe": storedRecipe
+    })
+    localStorage.setItem("list", JSON.stringify(list))
+  }
 };
 
 export { getRandomRecipe };
