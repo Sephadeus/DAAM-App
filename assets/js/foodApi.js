@@ -89,12 +89,12 @@ var renderRecipeCard = function(apiObject){
   // join on spaces into single string
   var formattedSummary = truncatedSummary.join(' ');
   recipeSummaryEl.innerHTML = formattedSummary;
-
-  recipeTimeEl.innerText = "Total Time: " + apiObject.timeToMake + " minutes";
+  var timeTaken = "Total Time: " + apiObject.timeToMake + " minutes"
+  recipeTimeEl.innerHTML = "<small>" + timeTaken + "</small>";
 
   // add spaces to cuisineList
   var listWithSpaces = apiObject.cuisineList.join(', ');
-  recipeCusinesEl.innerText = listWithSpaces;
+  recipeCusinesEl.innerHTML = "<small>" + listWithSpaces + "</small>";
 
   recipeSourceLinkEl.setAttribute('href', apiObject.sourceUrl);
 }
