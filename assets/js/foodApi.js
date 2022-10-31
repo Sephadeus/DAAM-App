@@ -14,7 +14,7 @@ var spoonacularApiKey = "3a719d472e46434aa2f953f1f40adfd0"
 // TODO: return an object with the relevant info, including recipe ID
 var getRandomRecipe = function (cuisine, intolerance) {
   let spoonacularComplexSearch = 'recipes/complexSearch?sort=random&number=1'
-  let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&types=main%20course' + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
+  let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&type=main+course' + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
   console.log("getRandomRecipe API Call: " + apiCall)
   fetch(apiCall)
   .then(function (response) {
@@ -94,7 +94,7 @@ var renderRecipeCard = function(apiObject){
 
   // add spaces to cuisineList
   var listWithSpaces = apiObject.cuisineList.join(', ');
-  recipeCusinesEl.innerHTML = "<small>" + listWithSpaces + "</small>";
+  recipeCusinesEl.innerHTML = "<small>" + "Cuisines: " + listWithSpaces + "</small>";
 
   recipeSourceLinkEl.setAttribute('href', apiObject.sourceUrl);
 }
