@@ -134,6 +134,11 @@ var renderFavorites = function(favoritesList){
 
 renderFavorites(favoritesObj);
 
+function clearFavorites() {
+  localStorage.clear();
+  location.reload();
+}
+
 
 
 
