@@ -11,16 +11,17 @@ function generateFavoriteCard(){
                 "Movie: " + localStorage.getItem('movie');
 
 
-    var meal = document.createElement("p");
-    document.getElementById("meal-title").appendChild(meal);
+    var recipe = document.createElement("p");
+    document.getElementById("meal-title").appendChild(recipe);
         // localStorage.setItem('meal','chicken parm');
             document.getElementById('meal-title').innerHTML = 
-                "Meal: " + localStorage.getItem('meal');
+                // "Meal: " + localStorage.getItem('recipe');
+                JSON.parse(localStorage.getItem('recipe'));
 
-
+                
      var movieImage = document.createElement('img');
     //  image.src = 
-     movieImage.setAttribute("src", chosenMovieObj.poster);
+    // movieImage.setAttribute("src", chosenMovieObj.poster);
      document.getElementById("favorites").appendChild(movieImage);
 
      var mealImage = document.createElement('img');
@@ -29,6 +30,10 @@ function generateFavoriteCard(){
 
       
 };
+
+
+
+
 
 
 
