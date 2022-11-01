@@ -33,24 +33,26 @@ const getRandomMovie = function (genre) {
         alert("Error: " + response.statusText);
       }
     })
-    .then(function (data) {
-      // console.log(data);
-      var genreLibrary = data.genres;
-      // console.log(genreLibrary);
-      console.log("Genre Library" +genreLibrary);
-      for (let i = 0; i < genreLibrary.length; i++) {
-        //console.log(genreLibrary[i]);
 
-        if (genreLibrary[i].name == genre) {
-          chosenGenreID = genreLibrary[i].id;
-          // console.log(chosenGenreID);
+    .then(function (data) {
+      console.log(data);
+      var genreLibrary = data.genres.slice(0, data.genres.length - 1);
+
+      console.log("Genre Library " + genreLibrary);
+
+      for (let i = 0; i < data.genres.length; i++) {
+        console.log("i: " + i)
+        console.log(data.genres[i]);
+
+        if (data.genres[i].name == genre) {
+          console.log("Name of genre at given index: " + data.genres[i].name)
+          chosenGenreID = data.genres[i].id;
+          console.log("The matching genre ID: " + chosenGenreID);
           return chosenGenreID;
-        } else {
-          i++;
         }
-      }
-      return chosenGenreID;
-    })
+    }
+    return chosenGenreID;
+  })
     .then(function (genreID) {
       let tmdbSearchURL =
         "https://api.themoviedb.org/3/discover/movie?api_key=" +
@@ -67,8 +69,8 @@ const getRandomMovie = function (genre) {
         })
         .then(function (data) {
           console.log(data);
-          let resultsArr = data.results;
-          // console.log(resultsArr);
+          var resultsArr = data.results;
+          console.log("Array of returned results: " + resultsArr);
           var possibleRecs = [];
 
           for (let i = 0; i < resultsArr.length; i++) {
@@ -82,8 +84,8 @@ const getRandomMovie = function (genre) {
               possibleRecs.push(i);
             }
           }
-
-          var randomMod = Math.floor(Math.random() * possibleRecs.length);
+          var randomMod = 0;
+          randomMod = Math.floor(Math.random() * possibleRecs.length);
           console.log("Array of possible recommendations: " + possibleRecs)
           console.log("Random modifier variable, which generates a random number within the range to use as : " + randomMod);
           console.log("Pick a random movie from the array of possible recommendations: " + possibleRecs[randomMod]);
@@ -92,7 +94,7 @@ const getRandomMovie = function (genre) {
           console.log(resultsArr)
           var chosenMovieObj = {};
 
-          console.log(resultsArr[theChosenMovieIndex])
+          console.log("Returns the chosen movie's data: " + resultsArr[theChosenMovieIndex])
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
