@@ -1,42 +1,96 @@
+mainEl = document.querySelector('main')
 
-document.body.onload = generateFavoriteCard;
-function generateFavoriteCard(){
-    var placeholderText = document.getElementById("placeholder-text");
-        placeholderText.parentNode.removeChild(placeholderText);
+var favorites = localStorage.getItem('list');
 
-    var movie = document.createElement('p');
-    document.getElementById("movie-title").appendChild(movie);
-        // localStorage.setItem('movie', 'legally blonde');
-            document.getElementById("movie-title").innerHTML = 
-                "Movie: " + localStorage.getItem('movie');
+var favoritesObj = JSON.parse(favorites);
 
+var renderFavorites = function(favoritesList){
 
-    var recipe = document.createElement("p");
-    document.getElementById("meal-title").appendChild(recipe);
-        // localStorage.setItem('meal','chicken parm');
-            document.getElementById('meal-title').innerHTML = 
-                // "Meal: " + localStorage.getItem('recipe');
-                JSON.parse(localStorage.getItem('recipe'));
+  for (let i = 0; i < favoritesList.length; i++) {
 
-                
-     var movieImage = document.createElement('img');
-    //  image.src = 
-    // movieImage.setAttribute("src", chosenMovieObj.poster);
-     document.getElementById("favorites").appendChild(movieImage);
+    var recipe = favoritesList[i].recipe
+    var movie = favoritesList[i].movie
+  
+    // split summary by '. ' (full stop and space) but retain . character
+    var recipeSummarySplitArray = recipe.summary.split(/(?<=\. )/)
+    // select first 4 items from array
+    var recipeTruncatedSummary = recipeSummarySplitArray.slice(0,3)
+    // join on spaces into single string
+    var recipeFormattedSummary = recipeTruncatedSummary.join(' ');
 
-     var mealImage = document.createElement('img');
-     //image.src = 
-     document.getElementById("favorites").appendChild(mealImage);
+    var recipeTimeTaken = "Total Time: " + recipe.timeToMake + " minutes"
 
-      
-};
+    // add spaces to cuisineList
+    var cuisineListWithSpaces = recipe.cuisineList.join(', ');
+    var cuisineListItem = "Cuisines: " + cuisineListWithSpaces;
 
+    var movieScoreContent = "Vote Average: " + movie.score;
+    var releaseDateContent = "Released: " + movie.releaseDate;
 
+    var imdbURLRef = 'https://www.imdb.com/title/' +  movie.imdbID + '/?ref_=nv_sr_srsg_0';
 
+    var favoriteContainer = document.createElement('div');
+    favoriteContainer.setAttribute('class', 'container');
+    favoriteContainer.setAttribute('id', "favorite-item-" + (i + 1));
+    mainEl.appendChild(favoriteContainer);
 
+    favoriteContainer.innerHTML = `
+    <div class="p-2 fs-4" id="favorite${i + 1}">Favorite ${i + 1}</div>
+    <div class="row d-flex p-4 border border-light border-4 rounded-4 align-items-center justify-content-center">
+      <!-- Card 1 -->
+      <div class="card bg-dark col-6 border-0" id="movie-card${i + 1}" >
+        <div class="row g-0">
+          <div class="col-md-4 mt-4">
+            <img src="${movie.poster}" class="img-fluid rounded mx-auto d-block" alt="moive poster" id ="movie-image${i + 1}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title" id="movie-title${i + 1}">${movie.title}</h3>
+              <p class="card-text" id="movie-overview${i + 1}">${movie.overview}</p>
+              <p class="card-text m-0" id="movie-score${i + 1}">
+                <small>${movieScoreContent}</small>
+              </p>
+              <p class="card-text m-0" id="movie-release-date${i + 1}">
+                <small>${releaseDateContent}</small>
+              </p>
+            </div>
+            <div class="card-body">
+              <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+              <a href="${imdbURLRef}" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card bg-dark col-6 border-0" id="recipe-card${i + 1}" >
+        <div class="row g-0">
+          <div class="col-md-4 mt-4">
+            <img src="${recipe.imageUrl}" class="img-fluid rounded mx-auto d-block" alt="image of meal" id="recipe-image${i + 1}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title" id="recipe-title${i + 1}">${recipe.title}</h3>
+              <p class="card-text" id="recipe-summary${i + 1}">${recipeFormattedSummary}</p>
+              <p class="card-text m-0" id="recipe-time${i + 1}">
+                <small>${recipeTimeTaken}</small>
+              </p>
+              <p class="card-text m-0" id="recipe-cuisines${i + 1}">
+                <small>${cuisineListItem}</small>
+              </p>
+            </div>
+            <div class="card-body">
+              <!-- target="_blank" needed so that link opens in new tab (not same page)-->
+              <a href="${recipe.sourceUrl}" target="_blank" class="btn btn-primary" id="recipe-link">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+  };
+}
 
-
-
+renderFavorites(favoritesObj);
 
 
 
