@@ -15,8 +15,8 @@
     <title>Dinner and a Movie</title>
   </head>
 
-  <body class="d-flex h-100 text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <body class="d-flex h-100 text-white bg-dark flex-column">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
       <header class="mb-auto">
         <div>
           <h2 class="float-md-start mb-3">Dinner and a Movie</h2>
@@ -28,11 +28,11 @@
       </header>
     </div>
     <main>
-      <div class="container d-flex flex-row">
-        <div class="row">
-          <div class="col-12 col-sm-6" id="favorite1">
+      <div class="container ">
+          <div class="favorites p-2 fs-4" id="favorite1">Favorite 1</div>
+        <div class="row d-flex p-4 border border-light border-4  align-items-center justify-content-center">
             <!-- Card 1 -->
-            <div class="card mb-3 w-100 bg-light" id="movie-card" >
+            <div class="card bg-dark col-6" id="movie-card" >
               <div class="row g-0">
                 <div class="col-md-4 mt-4">
                   <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
@@ -56,7 +56,7 @@
               </div>
             </div>
             <!-- Card 2 -->
-            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
+            <div class="card bg-dark col-6" id="recipe-card" >
               <div class="row g-0">
                 <div class="col-md-4 mt-4">
                   <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
@@ -80,9 +80,14 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6" id="favorite2">
+          </div>
+         </div>
+
+         <div class="container ">
+          <div class="favorites p-2 fs-4" id="favorite2"> Favorite 2</div>
+        <div class="row d-flex p-4 border border-4 border-light align-items-center justify-content-center">
             <!-- Card 1 -->
-            <div class="card mb-3 w-100 bg-light" id="movie-card" >
+            <div class="card bg-dark col-6" id="movie-card" >
               <div class="row g-0">
                 <div class="col-md-4 mt-4">
                   <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
@@ -106,7 +111,7 @@
               </div>
             </div>
             <!-- Card 2 -->
-            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
+            <div class="card bg-dark col-6" id="recipe-card" >
               <div class="row g-0">
                 <div class="col-md-4 mt-4">
                   <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
@@ -130,63 +135,17 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6" id="favorite3">
-            <!-- Card 1 -->
-            <div class="card mb-3 w-100 bg-light" id="movie-card" >
-              <div class="row g-0">
-                <div class="col-md-4 mt-4">
-                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="moive poster" id ="movie-image">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h3 class="card-title" id="movie-title">Movie Title: <span class="text-muted">Loading...</span></h3>
-                    <p class="card-text" id="movie-overview">Overview: <span class="text-muted">Loading...</span></p>
-                    <p class="card-text m-0" id="movie-score">
-                      <small>Movie score: <span class="text-muted">Loading...</span></small>
-                    </p>
-                    <p class="card-text m-0" id="movie-release-date">
-                      <small>Release Date: <span class="text-muted">Loading...</span></small>
-                    </p>
-                  </div>
-                  <div class="card-body">
-                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
-                    <a href="" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="card mb-3 w-100 bg-light" id="recipe-card" >
-              <div class="row g-0">
-                <div class="col-md-4 mt-4">
-                  <img src="assets/images/loading160.svg" class="img-fluid rounded-start mx-auto d-block" alt="image of meal" id="recipe-image">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h3 class="card-title" id="recipe-title">Recipe Title: <span class="text-muted">Loading...</span></h3>
-                    <p class="card-text" id="recipe-summary">Summary: <span class="text-muted">Loading...</span></p>
-                    <p class="card-text m-0" id="recipe-time">
-                      <small>Total Time: <span class="text-muted">Loading...</span></small>
-                    </p>
-                    <p class="card-text m-0" id="recipe-cuisines">
-                      <small>Cusines: <span class="text-muted">Loading...</span></small>
-                    </p>
-                  </div>
-                  <div class="card-body">
-                    <!-- target="_blank" needed so that link opens in new tab (not same page)-->
-                    <a href="" target="_blank" class="btn btn-primary" id="recipe-link">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
+         </div>
+
     </main>
     
     <footer class="text-muted py-5">
     </footer>
 
     <script src="./assets/js/favorites.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
   </body>
 </html>
