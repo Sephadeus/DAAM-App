@@ -38,7 +38,7 @@ var renderFavorites = function(favoritesList){
     <div class="p-2 fs-4" id="favorite${i + 1}">Favorite ${i + 1}</div>
     <div class="row d-flex p-4 border border-light border-4 rounded-4 align-items-center justify-content-center">
       <!-- Card 1 -->
-      <div class="card bg-dark col-6 border-0" id="movie-card${i + 1}" >
+      <div class="card bg-dark col-sm-12 col-md-6 border-0" id="movie-card${i + 1}" >
         <div class="row g-0">
           <div class="col-md-4 mt-4">
             <img src="${movie.poster}" class="img-fluid rounded mx-auto d-block" alt="moive poster" id ="movie-image${i + 1}">
@@ -62,7 +62,7 @@ var renderFavorites = function(favoritesList){
         </div>
       </div>
       <!-- Card 2 -->
-      <div class="card bg-dark col-6 border-0" id="recipe-card${i + 1}" >
+      <div class="card bg-dark col-sm-12 col-md-6 border-0" id="recipe-card${i + 1}" >
         <div class="row g-0">
           <div class="col-md-4 mt-4">
             <img src="${recipe.imageUrl}" class="img-fluid rounded mx-auto d-block" alt="image of meal" id="recipe-image${i + 1}">
