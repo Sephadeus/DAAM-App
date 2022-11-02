@@ -13,7 +13,7 @@ function intoleranceLister (state){
 
   Object.entries(state).forEach(entry => {
     const [key, value] = entry;
-    console.log(key, value)
+    // console.log(key, value)
     if (value == true) {
       intoleranceList.push(key)
     };
@@ -41,11 +41,11 @@ function formSubmitHandler (){
   var movieGenre = movieGenreEl.value;
 
   var intoleranceList = intoleranceLister(intoleranceState);
-  console.log("intoleranceList type: " + typeof intoleranceList);
+  // console.log("intoleranceList type: " + typeof intoleranceList);
 
-  console.log('cuisine: ' + cuisine)
-  console.log('genre: ' + movieGenre)
-  console.log('intolerances: ' + intoleranceList)
+  // console.log('cuisine: ' + cuisine)
+  // console.log('genre: ' + movieGenre)
+  // console.log('intolerances: ' + intoleranceList)
 
   // each of these functions will render the output to their respective
   // cards inside the modal. this will be handled in the *Api.js files
