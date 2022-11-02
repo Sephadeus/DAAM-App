@@ -3,17 +3,13 @@ var favoriteBtnEl = document.getElementById('save-to-favorites')
 // TODO: return an object with the relevant info
 const getRandomMovie = function (genre) {
   // console.log(genre);
-  let genreLibrary;
-
 
   const movieImgEl = document.getElementById("movie-image");
   const movieTitleEl = document.getElementById("movie-title");
   const movieOverviewEl = document.getElementById("movie-overview");
-  const movieGenreEl = document.getElementById("movie-genre");
   const movieScoreEl = document.getElementById("movie-score");
   const movieReleaseEl = document.getElementById("movie-release-date");
   const movieLinkEl = document.getElementById("movie-link");
-  
 
   const tmdbApiKey = "6c357998608fdf506e7cd3aa5432c664";
 
@@ -40,12 +36,9 @@ const getRandomMovie = function (genre) {
 
     .then(function (data) {
       console.log(data);
-      let dataVar = data;
-      console.log(dataVar)
-     // var genreLibrary = dataVar.slice(0, data.length - 1);
-     genreLibrary = dataVar.genres;
-      console.log(genreLibrary)
-     // console.log("Genre Library " + genreLibrary);
+      var genreLibrary = data.genres.slice(0, data.genres.length - 1);
+
+      console.log("Genre Library " + genreLibrary);
 
       for (let i = 0; i < data.genres.length; i++) {
         console.log("i: " + i)
@@ -131,7 +124,6 @@ const getRandomMovie = function (genre) {
             
             fetch(detailSearchURL)
             .then(function(response) {
-              console.log(response)
               return response.json();
             })
             .then(function(data) {
@@ -146,11 +138,9 @@ const getRandomMovie = function (genre) {
             newMovieObject.releaseDate =  data.release_date;
             newMovieObject.poster =       baseImgURL + data.poster_path;
             newMovieObject.backdrop =     baseImgURL + data.backdrop_path;
-            newMovieObject.genre_ids =    obj.genre_ids;
-            
-            console.log(newMovieObject.genre_ids)
+            newMovieObject.genre_ids =    data.genre_ids;
+
             console.log("New Movie Object: " + newMovieObject);
-            
             movieImgEl.setAttribute("src", "");
             movieImgEl.setAttribute("src", newMovieObject.poster);
             
@@ -159,34 +149,6 @@ const getRandomMovie = function (genre) {
             
             movieOverviewEl.textContent = "";
             movieOverviewEl.textContent = newMovieObject.overview;
-
-            movieGenreEl.textContent = "";
-              console.log(newMovieObject.genre_ids.length)
-              console.log(genreLibrary);
-              let objGenresIds = newMovieObject.genre_ids; 
-              let genreNames = [];
-
-            for (let i = 0; i < objGenresIds.length; i++){
-
-              for (let j = 0; j < genreLibrary.length; j++){
-
-                if (objGenresIds[i] == genreLibrary[j].id) {
-                  genreNames.push(genreLibrary[j].name)
-                  j = 0;
-                  console.log(genreNames)
-                  i++;
-                } else {
-                  j++;
-                }
-            }
-
-            console.log(genreNames);
-            return genreNames;
-          }
-
-            movieGenreEl.textContent = "";
-            movieGenreContent = "Genre: " + genreNames;
-            movieGenreEl.innerHTML = "<small>" + movieGenreContent + "</small>";
 
             movieScoreEl.textContent = "";
             var movieScoreContent = "Vote Average: " + newMovieObject.score;
