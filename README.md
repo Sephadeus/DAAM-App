@@ -5,6 +5,7 @@ This webpage was created to help users decide what to eat and what to watch! It 
 
 ## Usage
 Here's the [link to the site on github-pages](https://sephadeus.github.io/DAAM-App/homepage.html)
+<br>
 When the user inputs their movie genre selection and cuisine type from the drop-downs, they then will Roll the Dice! and get their randomized food and film selection with a brief description of both. There is also checkboxes for allergies or dietary restrictions that can be selected as well.
 
 ![homepage](./assets/images/DAAM%20Web%20Capture.jpeg)
@@ -24,7 +25,7 @@ Bootstrap 5.2.2
 <br>
 [The Movie Database API](https://developers.themoviedb.org/3/getting-started)
 <br>
-[Spoonacular API](https://developers.themoviedb.org/3/getting-started)
+[Spoonacular API](https://spoonacular.com/food-api/docs)
 <br>
 
 ## Credits
