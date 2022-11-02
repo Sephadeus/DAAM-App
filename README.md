@@ -15,11 +15,17 @@ A pop-up will display showing the random picks. Users then have the option to "r
 
 ## Technologies Used
 HTML
+<br>
 CSS
+<br>
 JavaScript
+<br>
 Bootstrap 5.2.2
+<br>
 [The Movie Database API](https://developers.themoviedb.org/3/getting-started)
+<br>
 [Spoonacular API](https://developers.themoviedb.org/3/getting-started)
+<br>
 
 ## Credits
 Ana Fede, Jakub Cichon, Joseph Labadia & Nathan Hanisch
