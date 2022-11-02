@@ -4,7 +4,7 @@
 This webpage was created to help users decide what to eat and what to watch! It takes the difficult task of deciding/agreeing on food and film to a randomizer that does all the work. Spend more time enjoying and less time stressing!
 
 ## Usage
-https://sephadeus.github.io/DAAM-App/homepage.html  
+Here's the [link to the site on github-pages](https://sephadeus.github.io/DAAM-App/homepage.html)
 When the user inputs their movie genre selection and cuisine type from the drop-downs, they then will Roll the Dice! and get their randomized food and film selection with a brief description of both. There is also checkboxes for allergies or dietary restrictions that can be selected as well.
 
 ![homepage](./assets/images/DAAM%20Web%20Capture.jpeg)
@@ -15,11 +15,17 @@ A pop-up will display showing the random picks. Users then have the option to "r
 
 ## Technologies Used
 HTML
+<br>
 CSS
+<br>
 JavaScript
+<br>
 Bootstrap 5.2.2
+<br>
 [The Movie Database API](https://developers.themoviedb.org/3/getting-started)
+<br>
 [Spoonacular API](https://developers.themoviedb.org/3/getting-started)
+<br>
 
 ## Credits
 Ana Fede, Jakub Cichon, Joseph Labadia & Nathan Hanisch
