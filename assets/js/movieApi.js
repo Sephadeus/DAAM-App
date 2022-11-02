@@ -35,19 +35,19 @@ const getRandomMovie = function (genre) {
     })
 
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       var genreLibrary = data.genres.slice(0, data.genres.length - 1);
 
-      console.log("Genre Library " + genreLibrary);
+      // console.log("Genre Library " + genreLibrary);
 
       for (let i = 0; i < data.genres.length; i++) {
-        console.log("i: " + i)
-        console.log(data.genres[i]);
+        // console.log("i: " + i)
+        // console.log(data.genres[i]);
 
         if (data.genres[i].name == genre) {
-          console.log("Name of genre at given index: " + data.genres[i].name)
+          // console.log("Name of genre at given index: " + data.genres[i].name)
           chosenGenreID = data.genres[i].id;
-          console.log("The matching genre ID: " + chosenGenreID);
+          // console.log("The matching genre ID: " + chosenGenreID);
           return chosenGenreID;
         }
     }
@@ -68,9 +68,9 @@ const getRandomMovie = function (genre) {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
+          // console.log(data);
           var resultsArr = data.results;
-          console.log("Array of returned results: " + resultsArr);
+          // console.log("Array of returned results: " + resultsArr);
           var possibleRecs = [];
 
           for (let i = 0; i < resultsArr.length; i++) {
@@ -79,22 +79,22 @@ const getRandomMovie = function (genre) {
               resultsArr[i]["genre_ids"].includes(genreID) &&
               resultsArr[i]["vote_average"] >= 5
             ) {
-              console.log("Genre ID's of particular movie iterated: " + resultsArr[i].genre_ids);
-              console.log("All data about movie from the API:" + resultsArr[i]);
+              // console.log("Genre ID's of particular movie iterated: " + resultsArr[i].genre_ids);
+              // console.log("All data about movie from the API:" + resultsArr[i]);
               possibleRecs.push(i);
             }
           }
           var randomMod = 0;
           randomMod = Math.floor(Math.random() * possibleRecs.length);
-          console.log("Array of possible recommendations: " + possibleRecs)
-          console.log("Random modifier variable, which generates a random number within the range to use as : " + randomMod);
-          console.log("Pick a random movie from the array of possible recommendations: " + possibleRecs[randomMod]);
+          // console.log("Array of possible recommendations: " + possibleRecs)
+          // console.log("Random modifier variable, which generates a random number within the range to use as : " + randomMod);
+          // console.log("Pick a random movie from the array of possible recommendations: " + possibleRecs[randomMod]);
           var theChosenMovieIndex = possibleRecs[randomMod];
 
-          console.log(resultsArr)
+          // console.log(resultsArr)
           var chosenMovieObj = {};
 
-          console.log("Returns the chosen movie's data: " + resultsArr[theChosenMovieIndex])
+          // console.log("Returns the chosen movie's data: " + resultsArr[theChosenMovieIndex])
           chosenMovieObj.title = resultsArr[theChosenMovieIndex].title;
           chosenMovieObj.overview = resultsArr[theChosenMovieIndex].overview;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
@@ -109,16 +109,16 @@ const getRandomMovie = function (genre) {
           chosenMovieObj.genre_ids = resultsArr[theChosenMovieIndex].genre_ids;
           chosenMovieObj.id = resultsArr[theChosenMovieIndex].id;
 
-          console.log("Movie Poster URL" +chosenMovieObj.poster);
+          // console.log("Movie Poster URL" +chosenMovieObj.poster);
 
-          console.log("Chosen movie object" + chosenMovieObj);
+          // console.log("Chosen movie object" + chosenMovieObj);
 
           return chosenMovieObj;
         })
 
         .then(function(obj){
 
-        console.log("Object passed in as parameter" + obj)
+        // console.log("Object passed in as parameter" + obj)
 
             let detailSearchURL = 'https://api.themoviedb.org/3/movie/' + obj.id + '?api_key=' + tmdbApiKey + '&language=en-US';
             
@@ -127,7 +127,7 @@ const getRandomMovie = function (genre) {
               return response.json();
             })
             .then(function(data) {
-              console.log("Data returned from API: " +data);
+              // console.log("Data returned from API: " +data);
 
           let newMovieObject = {};
             newMovieObject.title =        data.title;
@@ -140,7 +140,7 @@ const getRandomMovie = function (genre) {
             newMovieObject.backdrop =     baseImgURL + data.backdrop_path;
             newMovieObject.genre_ids =    data.genre_ids;
 
-            console.log("New Movie Object: " + newMovieObject);
+            // console.log("New Movie Object: " + newMovieObject);
             movieImgEl.setAttribute("src", "");
             movieImgEl.setAttribute("src", newMovieObject.poster);
             

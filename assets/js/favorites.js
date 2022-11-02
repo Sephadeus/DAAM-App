@@ -87,48 +87,6 @@ var renderFavorites = function(favoritesList){
       </div>
     </div>
     `;
-
-    // favoriteContainer.innerHTML = `
-    // <div class="p-2 fs-4" id="favorite${i + 1}">Favorite ${i + 1}</div>
-    // <div class="row d-flex p-4 border border-light border-3 rounded-4 align-items-center justify-content-center">
-    //   <div class="card-group">
-    //     <!-- Card 1 -->
-    //     <div class="card" id="movie-card${i + 1}">
-    //       <img src="${movie.poster}" class="card-img-top img-fluid" alt="moive poster" id="movie-image${i + 1}">
-    //       <div class="card-body">
-    //         <h5 class="card-title"id="movie-title${i + 1}">${movie.title}</h5>
-    //         <p class="card-text"id="movie-overview${i + 1}">${movie.overview}</p>
-    //         <p class="card-text m-0" id="movie-score${i + 1}">
-    //           <small>${movieScoreContent}</small>
-    //         </p>
-    //         <p class="card-text m-0" id="movie-release-date${i + 1}">
-    //           <small>${releaseDateContent}</small>
-    //         </p>
-    //       </div>
-    //       <div class="card-footer">
-    //         <a href="${imdbURLRef}" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
-    //       </div>
-    //     </div>
-    //     <!-- Card 2 -->
-    //     <div class="card" id="recipe-card${i + 1}">
-    //       <img src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="moive poster" id="recipe-image${i + 1}">
-    //       <div class="card-body">
-    //         <h5 class="card-title"id="recipe-title${i + 1}">${recipe.title}</h5>
-    //         <p class="card-text"id="recipe-summary${i + 1}">${recipeFormattedSummary}</p>
-    //         <p class="card-text m-0" id="recipe-time${i + 1}">
-    //           <small>${recipeTimeTaken}</small>
-    //         </p>
-    //         <p class="card-text m-0" id="recipe-release-cuisine${i + 1}">
-    //           <small>${cuisineListItem}</small>
-    //         </p>
-    //       </div>
-    //       <div class="card-footer">
-    //         <a href="${recipe.sourceUrl}" target="_blank" class="btn btn-primary" id="movie-link">Read More</a>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    // `;
   };
 }
 

@@ -1,6 +1,6 @@
 // make API requests to pull back random recipe filtered by specific cuisine type and dietary restrictions
 var favoriteBtnEl = document.getElementById('save-to-favorites')
-var recipeCardEl = document.getElementById('recipe-card')
+//var recipeCardEl = document.getElementById('recipe-card')
 var recipeImageLinkEl = document.getElementById('recipe-image')
 var recipeTitleEl = document.getElementById('recipe-title')
 var recipeSummaryEl = document.getElementById('recipe-summary')
@@ -11,11 +11,11 @@ var recipeSourceLinkEl = document.getElementById('recipe-link')
 var spoonacularBaseApiUrl = 'https://api.spoonacular.com/'
 var spoonacularApiKey = "3a719d472e46434aa2f953f1f40adfd0"
 
-// TODO: return an object with the relevant info, including recipe ID
+// return an object with the relevant info, including recipe ID
 var getRandomRecipe = function (cuisine, intolerance) {
   let spoonacularComplexSearch = 'recipes/complexSearch?sort=random&number=1'
   let apiCall = spoonacularBaseApiUrl + spoonacularComplexSearch + '&type=main+course' + '&intolerances=' + intolerance + '&cuisine=' + cuisine + '&apiKey=' + spoonacularApiKey;
-  console.log("getRandomRecipe API Call: " + apiCall)
+  // console.log("getRandomRecipe API Call: " + apiCall)
   fetch(apiCall)
   .then(function (response) {
     if (response.ok) {
@@ -25,15 +25,15 @@ var getRandomRecipe = function (cuisine, intolerance) {
     };
   })
   .then(async function (data) {
-    console.log('getRandomRecipe Response \n----------');
-    console.log(data);
+    // console.log('getRandomRecipe Response \n----------');
+    // console.log(data);
     if(data.totalResults !== 0){
       var randomRecipeResults = data.results;
       var recipeId = randomRecipeResults[0].id;
-      //console.log("Value of recipeId from getRandomRecipe: " + recipeId);
+      // console.log("Value of recipeId from getRandomRecipe: " + recipeId);
       await getRecipeInfo(recipeId);
     } else {
-      console.log("Recipe with specified criteria not found.")
+      // console.log("Recipe with specified criteria not found.")
     }
   });
 };
@@ -41,7 +41,7 @@ var getRandomRecipe = function (cuisine, intolerance) {
 
 var getRecipeInfo = async function (id) {
   let apiCall = spoonacularBaseApiUrl + '/recipes/' + id + '/information?includeNutrition=false&apiKey=' + spoonacularApiKey
-  console.log("getRecipeInfo API Call: " + apiCall)
+  // console.log("getRecipeInfo API Call: " + apiCall)
   await fetch(apiCall)
   .then(function (response) {
     if (response.ok) {
@@ -51,7 +51,7 @@ var getRecipeInfo = async function (id) {
     };
   })
   .then(function (data) {
-    console.log('getRecipeInfo Response \n----------');
+    // console.log('getRecipeInfo Response \n----------');
     var recipeObject = {
       title:        data.title,
       imageUrl:     data.image,
@@ -65,7 +65,7 @@ var getRecipeInfo = async function (id) {
     return recipeObject;
   })
   .then(function(recipeObject){
-    console.log(recipeObject);
+    // console.log(recipeObject);
     renderRecipeCard(recipeObject);
 
     favoriteBtnEl.addEventListener('click', function(event) {
